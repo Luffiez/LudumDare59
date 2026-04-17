@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://bklwwu87gsmxu"]
+
+[ext_resource type="Script" uid="uid://bnl1d74evnrjq" path="res://main_menu_ui.gd" id="1_m2lub"]
+[ext_resource type="PackedScene" uid="uid://ce1i6fqv4rw1j" path="res://Game.tscn" id="2_2p34a"]
+
+[node name="MainMenuUI" type="Control" unique_id=1454055682 node_paths=PackedStringArray("playbutton", "quitbutton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m2lub")
+gameScene = ExtResource("2_2p34a")
+playbutton = NodePath("CanvasLayer/Control/VBoxContainer/Button_Play")
+quitbutton = NodePath("CanvasLayer/Control/VBoxContainer/Button_Quit")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1155416652]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=2030979565]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = 7.0
+offset_right = -8.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(0.5, 0.5)
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control" unique_id=858679195]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -157.0
+offset_top = 300.0
+offset_right = 143.0
+offset_bottom = -148.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Button_Play" type="Button" parent="CanvasLayer/Control/VBoxContainer" unique_id=1709035398]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "PLAY"
+
+[node name="Button_Quit" type="Button" parent="CanvasLayer/Control/VBoxContainer" unique_id=1759530387]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "QUIT"
+
+[node name="MarginContainer_Title" type="MarginContainer" parent="CanvasLayer/Control" unique_id=442842932]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 150.0
+offset_bottom = 250.0
+grow_horizontal = 2
+
+[node name="Title" type="RichTextLabel" parent="CanvasLayer/Control/MarginContainer_Title" unique_id=1307359299]
+clip_contents = false
+custom_minimum_size = Vector2(700, 100)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 60
+text = "GAME TITLE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer_Subtitle" type="MarginContainer" parent="CanvasLayer/Control" unique_id=1287699667]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 225.0
+offset_bottom = 275.0
+grow_horizontal = 2
+
+[node name="Subtitle" type="RichTextLabel" parent="CanvasLayer/Control/MarginContainer_Subtitle" unique_id=479642610]
+clip_contents = false
+custom_minimum_size = Vector2(700, 10)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "GAME SUBTITLE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer_Credits" type="MarginContainer" parent="CanvasLayer/Control" unique_id=485148117]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Credits" type="RichTextLabel" parent="CanvasLayer/Control/MarginContainer_Credits" unique_id=525230820]
+clip_contents = false
+custom_minimum_size = Vector2(500, 30)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 15
+text = "Created by: "
+horizontal_alignment = 1
+vertical_alignment = 1
