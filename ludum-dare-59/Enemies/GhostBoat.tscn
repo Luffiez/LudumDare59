@@ -1,13 +1,8 @@
 [gd_scene format=3 uid="uid://doq1yyd35wqeq"]
 
 [ext_resource type="Script" uid="uid://44t4nfcih0co" path="res://Enemies/ghost_boat.gd" id="1_rk8w6"]
-[ext_resource type="Shader" uid="uid://bss2u6qg8dity" path="res://Shaders/hidden_object.gdshader" id="2_o60py"]
-[ext_resource type="Texture2D" uid="uid://5yvx7kcnbqy" path="res://sprites/icon.svg" id="2_y7jq1"]
-[ext_resource type="Script" uid="uid://br5igjnsngkir" path="res://Scripts/DarknessAffected.gd" id="3_y7jq1"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_r6558"]
-shader = ExtResource("2_o60py")
-shader_parameter/edge_softness = 0.02
+[ext_resource type="Texture2D" uid="uid://1et03mbf5sax" path="res://sprites/boat.png" id="2_y7jq1"]
+[ext_resource type="Script" uid="uid://br5igjnsngkir" path="res://Scripts/BoatDarkness.gd" id="3_y7jq1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o60py"]
 animations = [{
@@ -35,16 +30,17 @@ slow_movement_speed = 1.0
 slow_movement_time = 1.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=558220533]
-material = SubResource("ShaderMaterial_r6558")
 sprite_frames = SubResource("SpriteFrames_o60py")
 script = ExtResource("3_y7jq1")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=832659990]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=794802337]
 shape = SubResource("CircleShape2D_r6558")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1045026560]
 rect = Rect2(-63, -61, 124, 121)
+show_rect = false
 
 [node name="Timer" type="Timer" parent="." unique_id=2115555456]

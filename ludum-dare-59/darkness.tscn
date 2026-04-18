@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://u28oa0nd3he1"]
+
+[ext_resource type="Script" uid="uid://caaq73de2jsn1" path="res://MaskRenderer.gd" id="1_bm56u"]
+[ext_resource type="Script" uid="uid://c2oj77qx4h08n" path="res://Scripts/darkness.gd" id="1_d3yks"]
+
+[node name="Darkness" type="Node" unique_id=289934521]
+script = ExtResource("1_d3yks")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=2103020540]
+transparent_bg = true
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport" unique_id=218888484]
+offset_right = 512.0
+offset_bottom = 512.0
+color = Color(0, 0, 0, 1)
+
+[node name="MaskRenderer" type="Node2D" parent="SubViewport" unique_id=1887232180]
+script = ExtResource("1_bm56u")

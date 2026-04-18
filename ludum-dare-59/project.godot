@@ -23,7 +23,12 @@ buses/default_bus_layout="uid://t86y7fr4e3hi"
 
 AudioManager="*uid://bvckcvvc0vci"
 SceneManager="*uid://brueustpdf1fy"
-Darkness="*uid://c2oj77qx4h08n"
+Darkness="*uid://u28oa0nd3he1"
+
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=480
 
 [input]
 
@@ -46,4 +51,5 @@ speed={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
