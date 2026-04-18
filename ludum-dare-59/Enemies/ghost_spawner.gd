@@ -1,0 +1,45 @@
+extends Node2D
+
+class_name  GhostSpawner
+
+@export var spawn_line : PathFollow2D
+@export var ghost_boat_scene : PackedScene
+@export var spawn_timer : Timer
+@export var reduce_spawn_time_timer : Timer
+@export var start_spawn_time : float
+@export var min_spawn_time : float
+@export var reduce_spawn_timer_time: float
+@export var spawn_time_reducement:float
+@export var spawn_node : Node2D
+@export var target : Node2D
+var spawn_time : float
+var game_over := false
+
+
+
+func _ready() -> void:
+	spawn_timer.timeout.connect(spawn_enemy)
+	spawn_time = start_spawn_time
+	spawn_timer.timeout.emit()
+	reduce_spawn_time_timer
+
+func reduce_spawn_time () -> void:
+	spawn_time -= spawn_time_reducement
+	if  spawn_time < min_spawn_time:
+		spawn_time = min_spawn_time
+	else:
+		reduce_spawn_time_timer.start(reduce_spawn_timer_time)
+	print("spawn")
+
+func spawn_enemy() -> void :
+	if  game_over:
+		return
+	var random_float := randf_range(0,1)
+	print(random_float)
+	spawn_line.progress_ratio = random_float
+	var spawn_position = spawn_node.global_position
+	var new_enemy := ghost_boat_scene.instantiate() as GhostBoat
+	add_child(new_enemy)
+	new_enemy.global_position = spawn_node.global_position
+	new_enemy.set_movement_direction(target.global_position)
+	spawn_timer.start(spawn_time)

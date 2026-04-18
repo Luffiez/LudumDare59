@@ -22,9 +22,9 @@ script = ExtResource("1_rk8w6")
 collider = NodePath("Area2D")
 animatedSprite = NodePath("AnimatedSprite2D")
 visibleNotifier = NodePath("VisibleOnScreenNotifier2D")
-slow_movement_timer = NodePath("Timer")
+slow_movement_timer = NodePath("SpawnTimer")
 life = 100.0
-normal_movement_speed = 5.0
+normal_movement_speed = 100.0
 slow_movement_speed = 1.0
 slow_movement_time = 1.0
 
@@ -39,4 +39,6 @@ shape = SubResource("CircleShape2D_r6558")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1045026560]
 rect = Rect2(-63, -61, 124, 121)
 
-[node name="Timer" type="Timer" parent="." unique_id=2115555456]
+[node name="SpawnTimer" type="Timer" parent="." unique_id=2115555456]
+
+[node name="ReduceSpawnTimeTimer" type="Timer" parent="." unique_id=158255920]

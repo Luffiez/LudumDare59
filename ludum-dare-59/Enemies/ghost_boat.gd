@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name  GhostBoat
+
 @export var collider : Area2D
 @export var animatedSprite: AnimatedSprite2D
 @export var visibleNotifier : VisibleOnScreenNotifier2D
@@ -8,10 +10,13 @@ extends Node2D
 @export var normal_movement_speed: float
 @export var slow_movement_speed:float
 @export var slow_movement_time : float
+var target := Vector2(0,0)
 var light_house_direction := Vector2(0,0)
 var flee := false
 var movement_speed : float
 var have_enterd_screen_once := false
+
+signal ghost_boat_died(score:int)
 
 func _physics_process(delta: float) -> void:
 	var  offset : Vector2 
@@ -26,9 +31,11 @@ func _ready() -> void:
 	visibleNotifier.screen_exited.connect(screen_exited)
 	visibleNotifier.screen_entered.connect(screen_enterd)
 	slow_movement_timer.timeout.connect(on_set_back_normal_speed)
-	var tmp_light_house := Vector2(0,0)
-	light_house_direction = (tmp_light_house - global_position).normalized()
 	movement_speed = normal_movement_speed
+	
+func set_movement_direction(target:Vector2) ->void:
+		light_house_direction = (target - global_position).normalized()
+	
 
 func on_set_back_normal_speed() -> void :
 	movement_speed = normal_movement_speed

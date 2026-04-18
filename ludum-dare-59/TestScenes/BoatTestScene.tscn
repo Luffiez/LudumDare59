@@ -1,10 +1,36 @@
 [gd_scene format=3 uid="uid://bh271s6rqy88w"]
 
-[ext_resource type="PackedScene" uid="uid://doq1yyd35wqeq" path="res://Enemies/GhostBoat.tscn" id="1_2s77w"]
+[ext_resource type="PackedScene" uid="uid://nccwbypa8a1n" path="res://Enemies/GhostSpawner.tscn" id="1_2s77w"]
+
+[sub_resource type="Curve2D" id="Curve2D_fap6m"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -531, -256, 0, 0, 0, 0, 455, -246, 0, 0, 0, 0, 401, 237, 0, 0, 0, 0, -525, 245, 0, 0, 0, 0, -531, -256)
+}
+point_count = 5
 
 [node name="BoatTestScene" type="Node2D" unique_id=958101595]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1843639623]
 
-[node name="GhostBoat" parent="." unique_id=1054152210 instance=ExtResource("1_2s77w")]
-position = Vector2(482, -197)
+[node name="Path2D" type="Path2D" parent="." unique_id=81553893]
+curve = SubResource("Curve2D_fap6m")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1402707624]
+position = Vector2(-525.09796, 236.81735)
+rotation = 0.0036866192
+progress = 2406.2788
+rotates = false
+cubic_interp = false
+
+[node name="Node2D" type="Node2D" parent="Path2D/PathFollow2D" unique_id=1437511093]
+
+[node name="GhostSpawner" parent="." unique_id=1644450088 node_paths=PackedStringArray("spawn_line", "spawn_node", "target") instance=ExtResource("1_2s77w")]
+position = Vector2(10, -511)
+spawn_line = NodePath("../Path2D/PathFollow2D")
+spawn_node = NodePath("../Path2D/PathFollow2D/Node2D")
+target = NodePath("../Target")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=752433632]
+position = Vector2(-228, -286)
+
+[node name="Target" type="Node2D" parent="." unique_id=1003895951]
