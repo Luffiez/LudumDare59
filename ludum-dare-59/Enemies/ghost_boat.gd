@@ -1,0 +1,60 @@
+extends Node2D
+
+@export var collider : Area2D
+@export var animatedSprite: AnimatedSprite2D
+@export var visibleNotifier : VisibleOnScreenNotifier2D
+@export var slow_movement_timer : Timer 
+@export var life : float
+@export var normal_movement_speed: float
+@export var slow_movement_speed:float
+@export var slow_movement_time : float
+var light_house_direction := Vector2(0,0)
+var flee := false
+var movement_speed : float
+var have_enterd_screen_once := false
+
+func _physics_process(delta: float) -> void:
+	var  offset : Vector2 
+	if flee :
+		offset = -light_house_direction * movement_speed * delta
+	else :
+		offset = light_house_direction * movement_speed * delta	
+	global_translate(offset)
+
+func _ready() -> void:
+	collider.area_entered.connect(area_entered)
+	visibleNotifier.screen_exited.connect(screen_exited)
+	visibleNotifier.screen_entered.connect(screen_enterd)
+	slow_movement_timer.timeout.connect(on_set_back_normal_speed)
+	var tmp_light_house := Vector2(0,0)
+	light_house_direction = (tmp_light_house - global_position).normalized()
+	movement_speed = normal_movement_speed
+
+func on_set_back_normal_speed() -> void :
+	movement_speed = normal_movement_speed
+
+func screen_enterd()-> void :
+	have_enterd_screen_once = true
+
+func screen_exited()-> void :
+	if have_enterd_screen_once:
+		#remove boat and add score
+		queue_free()
+	
+	
+func area_entered (collision:Area2D) -> void:
+	var owner =	collision.get_shape_owners()
+	  
+func on_light_overlapp(damage : float) -> void:
+	life -= damage
+	if life <= 0:
+		flee = true
+		movement_speed = normal_movement_speed
+		slow_movement_timer.stop()
+	else :
+		movement_speed = slow_movement_speed
+		if	!slow_movement_timer.is_stopped() :
+			slow_movement_timer.stop()
+		slow_movement_timer.start(slow_movement_time)
+		
+		
