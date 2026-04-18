@@ -13,7 +13,7 @@ config_version=5
 config/name="LudumDare59"
 run/main_scene="uid://ce1i6fqv4rw1j"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://sprites/icon.svg"
 
 [audio]
 
@@ -23,6 +23,27 @@ buses/default_bus_layout="uid://t86y7fr4e3hi"
 
 AudioManager="*uid://bvckcvvc0vci"
 SceneManager="*uid://brueustpdf1fy"
+Darkness="*uid://u28oa0nd3he1"
+
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=480
+
+[input]
+
+stop={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(373, 10),"global_position":Vector2(382, 58),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+speed={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":2,"position":Vector2(165, 18),"global_position":Vector2(174, 66),"factor":1.0,"button_index":2,"canceled":false,"pressed":true,"double_click":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":1,"pressure":0.0,"pressed":false,"script":null)
+]
+}
 
 [physics]
 
@@ -30,4 +51,5 @@ SceneManager="*uid://brueustpdf1fy"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
