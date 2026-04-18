@@ -1,9 +1,71 @@
 [gd_scene format=3 uid="uid://cg0wf5khe7k2b"]
 
+[ext_resource type="PackedScene" uid="uid://do21nmayftemg" path="res://Scenes/water.tscn" id="1_d2tbo"]
 [ext_resource type="PackedScene" uid="uid://bklwwu87gsmxu" path="res://Scenes/MainMenu_UI.tscn" id="1_i26rj"]
+[ext_resource type="Texture2D" uid="uid://bk2pcojia61hj" path="res://sprites/lighthouse.png" id="1_koonp"]
+[ext_resource type="Texture2D" uid="uid://csp50s1w6ev76" path="res://sprites/bg.png" id="1_v2at7"]
+[ext_resource type="AudioStream" uid="uid://wdb5c2pl4v3d" path="res://freetousesounds - Ocean Sounds & Open Waves Sound Effects! 44 Locations - 08 Bali Seseh Beach Canggu.mp3" id="5_0t1wx"]
+[ext_resource type="AudioStream" uid="uid://yhu6a3ocr5ue" path="res://Click (12).wav" id="5_cwjnk"]
 
 [node name="MainMenu" type="Node2D" unique_id=781887490]
+
+[node name="Background" type="Node2D" parent="." unique_id=147456837]
+
+[node name="BG" type="Sprite2D" parent="Background" unique_id=1916091689]
+position = Vector2(-469, -214)
+scale = Vector2(2, 2)
+texture = ExtResource("1_v2at7")
+
+[node name="BG2" type="Sprite2D" parent="Background" unique_id=1111459536]
+position = Vector2(-341, -214)
+rotation = 3.1415927
+scale = Vector2(2, -2)
+texture = ExtResource("1_v2at7")
+
+[node name="BG3" type="Sprite2D" parent="Background" unique_id=1516623036]
+position = Vector2(-213, -214)
+scale = Vector2(2, 2)
+texture = ExtResource("1_v2at7")
+
+[node name="BG4" type="Sprite2D" parent="Background" unique_id=1426380620]
+position = Vector2(-85, -214)
+rotation = 3.1415927
+scale = Vector2(2, -2)
+texture = ExtResource("1_v2at7")
+
+[node name="BG5" type="Sprite2D" parent="Background" unique_id=1395374848]
+position = Vector2(43, -214)
+scale = Vector2(2, 2)
+texture = ExtResource("1_v2at7")
+
+[node name="BG6" type="Sprite2D" parent="Background" unique_id=1612968618]
+position = Vector2(171, -214)
+rotation = 3.1415927
+scale = Vector2(2, -2)
+texture = ExtResource("1_v2at7")
+
+[node name="BG7" type="Sprite2D" parent="Background" unique_id=1529256895]
+position = Vector2(299, -214)
+scale = Vector2(2, 2)
+texture = ExtResource("1_v2at7")
+
+[node name="BG8" type="Sprite2D" parent="Background" unique_id=1146066458]
+position = Vector2(427, -214)
+rotation = 3.1415927
+scale = Vector2(2, -2)
+texture = ExtResource("1_v2at7")
+
+[node name="Water" parent="." unique_id=1700266710 instance=ExtResource("1_d2tbo")]
+position = Vector2(-675, -115)
+script = null
+
+[node name="Lighthouse" type="Sprite2D" parent="." unique_id=1037929946]
+position = Vector2(-361, 101.99999)
+scale = Vector2(5.5384026, 6.3055563)
+texture = ExtResource("1_koonp")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1195218309]
 
 [node name="MainMenuUi" parent="." unique_id=1454055682 instance=ExtResource("1_i26rj")]
+clickSfx = ExtResource("5_cwjnk")
+bgm = ExtResource("5_0t1wx")

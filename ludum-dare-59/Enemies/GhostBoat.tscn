@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://doq1yyd35wqeq"]
 
 [ext_resource type="Script" uid="uid://44t4nfcih0co" path="res://Enemies/ghost_boat.gd" id="1_rk8w6"]
+[ext_resource type="Texture2D" uid="uid://21csiticsglw" path="res://sprites/exclamation.png" id="2_o60py"]
 [ext_resource type="Texture2D" uid="uid://1et03mbf5sax" path="res://sprites/boat.png" id="2_y7jq1"]
 [ext_resource type="Script" uid="uid://br5igjnsngkir" path="res://Scripts/BoatDarkness.gd" id="3_y7jq1"]
 
@@ -18,29 +19,37 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_y7jq1"]
 radius = 12.0
 
-[node name="GhostBoat" type="Node2D" unique_id=1054152210 node_paths=PackedStringArray("collider", "animatedSprite", "visibleNotifier", "slow_movement_timer")]
+[node name="GhostBoat" type="Node2D" unique_id=1054152210 node_paths=PackedStringArray("collider", "animatedSprite", "indicator", "visibleNotifier", "slow_movement_timer")]
 script = ExtResource("1_rk8w6")
 collider = NodePath("AnimatedSprite2D/Area2D")
 animatedSprite = NodePath("AnimatedSprite2D")
+indicator = NodePath("Visible_Indicator")
 visibleNotifier = NodePath("VisibleOnScreenNotifier2D")
 slow_movement_timer = NodePath("SpawnTimer")
-life = 100.0
+life = 50.0
 normal_movement_speed = 25.0
+flee_movement_speed = 70.0
 slow_movement_speed = 1.0
 slow_movement_time = 1.0
+
+[node name="Visible_Indicator" type="Sprite2D" parent="." unique_id=15660540]
+visible = false
+position = Vector2(0, -26)
+texture = ExtResource("2_o60py")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=558220533]
 sprite_frames = SubResource("SpriteFrames_o60py")
 script = ExtResource("3_y7jq1")
 
 [node name="Area2D" type="Area2D" parent="AnimatedSprite2D" unique_id=1924590567]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D" unique_id=1834132774]
 shape = SubResource("CircleShape2D_y7jq1")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1045026560]
+visible = false
 rect = Rect2(-63, -61, 124, 121)
-show_rect = false
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=2115555456]
 

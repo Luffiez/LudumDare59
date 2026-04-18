@@ -5,12 +5,15 @@ const  lightHouseNodeName := "Lighthouse"
 
 @export var collider : Area2D
 @export var animatedSprite: AnimatedSprite2D
+@export var indicator : Node2D
 @export var visibleNotifier : VisibleOnScreenNotifier2D
 @export var slow_movement_timer : Timer 
 @export var life : float
 @export var normal_movement_speed: float
+@export var flee_movement_speed: float
 @export var slow_movement_speed:float
 @export var slow_movement_time : float
+
 var light_house_direction := Vector2(0,0)
 var flee := false
 var movement_speed : float
@@ -68,10 +71,14 @@ func on_light_overlapp(damage : float) -> void:
 	if flee:
 		return
 	life -= damage
+	indicator.visible = true
+	
 	if life <= 0:
 		ghost_boat_died.emit(1)
 		flee = true
-		movement_speed = normal_movement_speed
+		indicator.visible = false
+		
+		movement_speed = flee_movement_speed
 		slow_movement_timer.stop()
 	else :
 		movement_speed = slow_movement_speed
