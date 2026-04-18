@@ -29,7 +29,7 @@ func reduce_spawn_time () -> void:
 		reduce_spawn_time_timer.start(reduce_spawn_timer_time)
 	print("spawn")
 
-func spawn_enemy() -> void :
+func spawn_enemy() ->  void :
 	if  game_over:
 		return
 	var random_float := randf_range(0,1)
