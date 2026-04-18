@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://mmtfb4sqe4n1"]
+
+[ext_resource type="Texture2D" uid="uid://lbtsay5r0ff" path="res://sprites/mouse_left_outline.png" id="1_drr47"]
+
+[node name="ControlsUI" type="Control" unique_id=1060063773]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=484467060]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=1376955955]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer" unique_id=2076354510]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="Stop" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer" unique_id=699130242]
+layout_direction = 2
+layout_mode = 2
+disabled = true
+text = "Stop  "
+icon = ExtResource("1_drr47")
+flat = true
+
+[node name="SpeedUp" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer" unique_id=771758093]
+layout_mode = 2
+disabled = true
+text = "Speed Up  "
+icon = ExtResource("1_drr47")
+flat = true

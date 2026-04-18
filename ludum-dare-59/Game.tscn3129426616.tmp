@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://ce1i6fqv4rw1j"]
+
+[ext_resource type="Shader" uid="uid://cfd57nd0cym42" path="res://darkness.gdshader" id="1_wbfu4"]
+[ext_resource type="Script" uid="uid://qcr4gf36a3sp" path="res://Lighthouse.gd" id="3_u44n3"]
+[ext_resource type="Texture2D" uid="uid://5yvx7kcnbqy" path="res://icon.svg" id="4_sb48q"]
+[ext_resource type="Shader" uid="uid://bss2u6qg8dity" path="res://GhostBoat.gdshader" id="4_t88pq"]
+[ext_resource type="Script" uid="uid://br5igjnsngkir" path="res://DarknessAffected.gd" id="6_3mrqo"]
+[ext_resource type="Shader" uid="uid://c7quybsvoi863" path="res://Water.gdshader" id="6_r0x5m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xkndl"]
+shader = ExtResource("1_wbfu4")
+shader_parameter/fog_color = Color(0, 0, 0, 1)
+shader_parameter/edge_softness = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r0x5m"]
+shader = ExtResource("4_t88pq")
+shader_parameter/edge_softness = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3mrqo"]
+shader = ExtResource("6_r0x5m")
+shader_parameter/dim_brightness = 0.4
+
+[node name="Game" type="Node2D" unique_id=1961527218]
+
+[node name="Darkness" type="Node" parent="." unique_id=2039705872]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Darkness" unique_id=792068529]
+
+[node name="ColorRect" type="ColorRect" parent="Darkness/CanvasLayer" unique_id=324437781]
+material = SubResource("ShaderMaterial_xkndl")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Lighthouse" type="Node2D" parent="." unique_id=8578532 node_paths=PackedStringArray("darkness")]
+position = Vector2(560, 323)
+script = ExtResource("3_u44n3")
+darkness = NodePath("../Darkness/CanvasLayer/ColorRect")
+cone_length = 1000.0
+rotation_speed = -0.8
+
+[node name="Boat" type="Sprite2D" parent="." unique_id=1851748768]
+material = SubResource("ShaderMaterial_r0x5m")
+position = Vector2(174, 233)
+scale = Vector2(-0.54664326, 0.3733092)
+texture = ExtResource("4_sb48q")
+script = ExtResource("6_3mrqo")
+
+[node name="Water" type="Sprite2D" parent="." unique_id=2009182284]
+material = SubResource("ShaderMaterial_3mrqo")
+position = Vector2(341, 450)
+scale = Vector2(-0.54664326, 0.3733092)
+texture = ExtResource("4_sb48q")
