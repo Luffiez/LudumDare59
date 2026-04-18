@@ -4,15 +4,18 @@
 [ext_resource type="Curve2D" uid="uid://b6clfe4tprfg8" path="res://Scenes/Levels/Enemy_SpawnLine.tres" id="2_mpnya"]
 
 [node name="GhostSpawnLine" type="Node2D" unique_id=443372404 node_paths=PackedStringArray("spawn_position", "path_follow")]
+position = Vector2(552, 322)
 script = ExtResource("1_syjhm")
 spawn_position = NodePath("Node2D2/PathFollow2D/SpawnPosition")
 path_follow = NodePath("Node2D2/PathFollow2D")
 
 [node name="Node2D2" type="Path2D" parent="." unique_id=1411165715]
+position = Vector2(6.6904364, -131.7377)
+scale = Vector2(1.0114368, 0.6268054)
 curve = ExtResource("2_mpnya")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Node2D2" unique_id=1392468438]
-position = Vector2(421.13287, -25.62859)
+position = Vector2(798.4528, 685.1672)
 rotation = 0.0036866192
 progress = 2406.2788
 rotates = false

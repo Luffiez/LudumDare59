@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://mmtfb4sqe4n1"]
 
 [ext_resource type="Texture2D" uid="uid://lbtsay5r0ff" path="res://sprites/mouse_left_outline.png" id="1_drr47"]
+[ext_resource type="Texture2D" uid="uid://cm7112hlkknju" path="res://sprites/mouse_right_outline.png" id="1_rqqra"]
+[ext_resource type="Texture2D" uid="uid://1et03mbf5sax" path="res://sprites/boat.png" id="3_d7oy3"]
 
-[node name="ControlsUI" type="Control" unique_id=1060063773]
+[node name="GameUI" type="Control" unique_id=1060063773]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,31 +14,74 @@ grow_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=484467060]
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=1376955955]
-anchors_preset = 12
+[node name="SpeedUp" type="Button" parent="CanvasLayer" unique_id=699130242]
+layout_direction = 2
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -72.0
-grow_horizontal = 2
+offset_left = -130.0
+offset_top = -40.0
+offset_right = -10.0
+offset_bottom = -8.999023
+grow_horizontal = 0
 grow_vertical = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer" unique_id=2076354510]
-layout_mode = 2
-theme_override_constants/separation = 10
+size_flags_vertical = 8
+disabled = true
+text = "Turbo"
+icon = ExtResource("1_rqqra")
+flat = true
 alignment = 2
+icon_alignment = 2
+expand_icon = true
 
-[node name="Stop" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer" unique_id=699130242]
-layout_direction = 2
-layout_mode = 2
+[node name="Stop" type="Button" parent="CanvasLayer" unique_id=771758093]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -40.0
+offset_right = -100.0
+offset_bottom = -9.0
+grow_horizontal = 0
+grow_vertical = 0
 disabled = true
-text = "Stop  "
+text = "Focus"
 icon = ExtResource("1_drr47")
 flat = true
+alignment = 0
+expand_icon = true
 
-[node name="SpeedUp" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer" unique_id=771758093]
-layout_mode = 2
+[node name="Score" type="Button" parent="CanvasLayer" unique_id=1013553263]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -105.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = 40.0
+grow_horizontal = 0
 disabled = true
-text = "Speed Up  "
-icon = ExtResource("1_drr47")
+text = "44 "
+icon = ExtResource("3_d7oy3")
 flat = true
+alignment = 2
+icon_alignment = 2
+expand_icon = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=555000876]
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 204.0
+offset_bottom = 103.0
+theme_override_colors/default_color = Color(1, 1, 1, 0.47058824)
+theme_override_font_sizes/normal_font_size = 10
+theme_override_font_sizes/bold_font_size = 12
+bbcode_enabled = true
+text = "[b]Objective[/b]
+Repel all incoming ships by focusing the lighthouses lamp on them."
+fit_content = true
+scroll_active = false

@@ -3,8 +3,11 @@
 [ext_resource type="Script" uid="uid://qcr4gf36a3sp" path="res://Scripts/Lighthouse.gd" id="1_uwk5y"]
 [ext_resource type="Texture2D" uid="uid://bk2pcojia61hj" path="res://sprites/lighthouse.png" id="2_u74n1"]
 [ext_resource type="Script" uid="uid://s8uygjvdgb1d" path="res://Scripts/LighthouseDarkness.gd" id="3_1jr6b"]
+[ext_resource type="Script" uid="uid://c341fvmfppxhk" path="res://Scripts/Light.gd" id="4_lf2i3"]
 
-[node name="Lighthouse" type="Node2D" unique_id=581975050]
+[node name="Lighthouse" type="Node2D" unique_id=581975050 node_paths=PackedStringArray("light")]
+script = ExtResource("1_uwk5y")
+light = NodePath("Light")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=776151876]
 texture = ExtResource("2_u74n1")
@@ -12,7 +15,7 @@ script = ExtResource("3_1jr6b")
 
 [node name="Light" type="Node2D" parent="." unique_id=205062943]
 position = Vector2(0, -19)
-script = ExtResource("1_uwk5y")
-cone_length = 500.0
+script = ExtResource("4_lf2i3")
+cone_length = 750.0
 rotation_speed = -1.0
-rotation_speed_boosted = -2.0
+rotation_speed_boosted = -3.0
