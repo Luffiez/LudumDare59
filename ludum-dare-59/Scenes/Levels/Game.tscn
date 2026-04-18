@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ce1i6fqv4rw1j"]
+
+[ext_resource type="PackedScene" uid="uid://do21nmayftemg" path="res://Scenes/water.tscn" id="1_4677a"]
+[ext_resource type="PackedScene" uid="uid://cqb7xx4e831jb" path="res://Scenes/Lighthouse.tscn" id="3_r3we0"]
+[ext_resource type="PackedScene" uid="uid://mmtfb4sqe4n1" path="res://Scenes/controls_ui.tscn" id="4_ujner"]
+[ext_resource type="Curve2D" uid="uid://b6clfe4tprfg8" path="res://Scenes/Levels/Enemy_SpawnLine.tres" id="4_ymxrj"]
+[ext_resource type="PackedScene" uid="uid://nccwbypa8a1n" path="res://Enemies/GhostSpawner.tscn" id="5_dobmf"]
+[ext_resource type="PackedScene" uid="uid://bh3vysjrsyd1i" path="res://Enemies/GhostSpawnLine.tscn" id="6_scfki"]
+
+[node name="Game" type="Node2D" unique_id=1961527218]
+
+[node name="Water" parent="." unique_id=1700266710 instance=ExtResource("1_4677a")]
+
+[node name="Lighthouse" parent="." unique_id=581975050 instance=ExtResource("3_r3we0")]
+position = Vector2(320, 240)
+
+[node name="ControlsUI" parent="." unique_id=1060063773 instance=ExtResource("4_ujner")]
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1398123090]
+curve = ExtResource("4_ymxrj")
+
+[node name="GhostSpawner" parent="." unique_id=1644450088 node_paths=PackedStringArray("spawn_line", "target") instance=ExtResource("5_dobmf")]
+spawn_line = NodePath("GhostSpawnLine")
+target = NodePath("../Lighthouse")
+
+[node name="GhostSpawnLine" parent="GhostSpawner" unique_id=443372404 instance=ExtResource("6_scfki")]

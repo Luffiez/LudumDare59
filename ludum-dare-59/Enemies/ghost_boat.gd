@@ -50,7 +50,7 @@ func screen_exited()-> void :
 	
 	
 func area_entered (collision:Area2D) -> void:
-	var owner =	collision.get_shape_owners()
+	var owner =	collision.owner
 	  
 func on_light_overlapp(damage : float) -> void:
 	life -= damage
