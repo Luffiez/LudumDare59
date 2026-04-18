@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://do21nmayftemg" path="res://Scenes/water.tscn" id="1_4677a"]
 [ext_resource type="PackedScene" uid="uid://doq1yyd35wqeq" path="res://Enemies/GhostBoat.tscn" id="2_ujner"]
 [ext_resource type="PackedScene" uid="uid://cqb7xx4e831jb" path="res://Scenes/Lighthouse.tscn" id="3_r3we0"]
+[ext_resource type="PackedScene" uid="uid://mmtfb4sqe4n1" path="res://Scenes/controls_ui.tscn" id="4_ujner"]
 
 [node name="Game" type="Node2D" unique_id=1961527218]
 
@@ -13,3 +14,5 @@ position = Vector2(403, 267)
 
 [node name="Lighthouse" parent="." unique_id=581975050 instance=ExtResource("3_r3we0")]
 position = Vector2(320, 240)
+
+[node name="ControlsUI" parent="." unique_id=1060063773 instance=ExtResource("4_ujner")]
