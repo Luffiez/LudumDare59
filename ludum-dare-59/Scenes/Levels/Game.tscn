@@ -13,8 +13,7 @@
 
 [node name="Lighthouse" parent="." unique_id=581975050 instance=ExtResource("3_r3we0")]
 position = Vector2(320, 240)
-<<<<<<< Updated upstream
-=======
+
 
 [node name="ControlsUI" parent="." unique_id=1060063773 instance=ExtResource("4_ujner")]
 
@@ -26,4 +25,3 @@ spawn_line = NodePath("GhostSpawnLine")
 target = NodePath("../Lighthouse")
 
 [node name="GhostSpawnLine" parent="GhostSpawner" unique_id=443372404 instance=ExtResource("6_scfki")]
->>>>>>> Stashed changes
