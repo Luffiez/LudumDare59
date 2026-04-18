@@ -2,7 +2,7 @@ extends Node2D
 
 class_name  GhostSpawner
 
-@export var spawn_line : PathFollow2D
+@export var spawn_line : SpawnLine
 @export var ghost_boat_scene : PackedScene
 @export var spawn_timer : Timer
 @export var reduce_spawn_time_timer : Timer
@@ -10,7 +10,6 @@ class_name  GhostSpawner
 @export var min_spawn_time : float
 @export var reduce_spawn_timer_time: float
 @export var spawn_time_reducement:float
-@export var spawn_node : Node2D
 @export var target : Node2D
 var spawn_time : float
 var game_over := false
@@ -36,10 +35,10 @@ func spawn_enemy() -> void :
 		return
 	var random_float := randf_range(0,1)
 	print(random_float)
-	spawn_line.progress_ratio = random_float
-	var spawn_position = spawn_node.global_position
+	spawn_line.set_progress_ratio(random_float)
+	var spawn_position =  spawn_line.get_spawn_global_position()
 	var new_enemy := ghost_boat_scene.instantiate() as GhostBoat
 	add_child(new_enemy)
-	new_enemy.global_position = spawn_node.global_position
+	new_enemy.global_position = spawn_position
 	new_enemy.set_movement_direction(target.global_position)
 	spawn_timer.start(spawn_time)
