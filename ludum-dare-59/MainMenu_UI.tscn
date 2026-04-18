@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bnl1d74evnrjq" path="res://main_menu_ui.gd" id="1_m2lub"]
 [ext_resource type="PackedScene" uid="uid://ce1i6fqv4rw1j" path="res://Game.tscn" id="2_2p34a"]
+[ext_resource type="Script" uid="uid://d3rfyj8v3eogq" path="res://credits_url.gd" id="3_j5qoq"]
 
 [node name="MainMenuUI" type="Control" unique_id=1454055682 node_paths=PackedStringArray("playbutton", "quitbutton")]
 layout_mode = 3
@@ -68,7 +69,7 @@ clip_contents = false
 custom_minimum_size = Vector2(700, 100)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 60
-text = "GAME TITLE"
+text = "THE LIGHTHOUSE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -85,7 +86,7 @@ clip_contents = false
 custom_minimum_size = Vector2(700, 10)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 20
-text = "GAME SUBTITLE"
+text = "LuduDare59"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -95,7 +96,8 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -30.0
+offset_top = -48.0
+offset_bottom = -18.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -104,6 +106,8 @@ clip_contents = false
 custom_minimum_size = Vector2(500, 30)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 15
-text = "Created by: "
+bbcode_enabled = true
+text = "Created by: [url=https://github.com/Luffiez]Erik Rodriguez[/url] &[url=https://github.com/IsBebs] Björn Bengtsson[/url]"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("3_j5qoq")
