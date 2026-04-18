@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bklwwu87gsmxu"]
 
 [ext_resource type="Script" uid="uid://bnl1d74evnrjq" path="res://Scripts/main_menu_ui.gd" id="1_m2lub"]
-[ext_resource type="PackedScene" uid="uid://ce1i6fqv4rw1j" path="res://Game.tscn" id="2_2p34a"]
+[ext_resource type="PackedScene" uid="uid://ce1i6fqv4rw1j" path="res://Scenes/Levels/Game.tscn" id="2_2p34a"]
 [ext_resource type="Script" uid="uid://d3rfyj8v3eogq" path="res://Scripts/credits_url.gd" id="3_j5qoq"]
 
 [node name="MainMenuUI" type="Control" unique_id=1454055682 node_paths=PackedStringArray("playbutton", "quitbutton")]
