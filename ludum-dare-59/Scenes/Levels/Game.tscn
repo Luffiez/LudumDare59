@@ -1,18 +1,24 @@
 [gd_scene format=3 uid="uid://ce1i6fqv4rw1j"]
 
 [ext_resource type="PackedScene" uid="uid://do21nmayftemg" path="res://Scenes/water.tscn" id="1_4677a"]
-[ext_resource type="PackedScene" uid="uid://doq1yyd35wqeq" path="res://Enemies/GhostBoat.tscn" id="2_ujner"]
 [ext_resource type="PackedScene" uid="uid://cqb7xx4e831jb" path="res://Scenes/Lighthouse.tscn" id="3_r3we0"]
+[ext_resource type="PackedScene" uid="uid://nccwbypa8a1n" path="res://Enemies/GhostSpawner.tscn" id="4_r3we0"]
 [ext_resource type="PackedScene" uid="uid://mmtfb4sqe4n1" path="res://Scenes/controls_ui.tscn" id="4_ujner"]
+[ext_resource type="PackedScene" uid="uid://bh3vysjrsyd1i" path="res://Enemies/GhostSpawnLine.tscn" id="5_ymxrj"]
 
 [node name="Game" type="Node2D" unique_id=1961527218]
 
 [node name="Water" parent="." unique_id=1700266710 instance=ExtResource("1_4677a")]
-
-[node name="GhostBoat" parent="." unique_id=1054152210 instance=ExtResource("2_ujner")]
-position = Vector2(403, 267)
+position = Vector2(2, -2)
 
 [node name="Lighthouse" parent="." unique_id=581975050 instance=ExtResource("3_r3we0")]
-position = Vector2(320, 240)
+position = Vector2(841, 489)
 
 [node name="ControlsUI" parent="." unique_id=1060063773 instance=ExtResource("4_ujner")]
+
+[node name="GhostSpawner" parent="." unique_id=1644450088 node_paths=PackedStringArray("spawn_line", "target") instance=ExtResource("4_r3we0")]
+spawn_line = NodePath("../GhostSpawnLine")
+target = NodePath("../Lighthouse")
+
+[node name="GhostSpawnLine" parent="." unique_id=443372404 instance=ExtResource("5_ymxrj")]
+position = Vector2(496, 274)

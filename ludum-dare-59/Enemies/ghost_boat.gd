@@ -10,11 +10,11 @@ class_name  GhostBoat
 @export var normal_movement_speed: float
 @export var slow_movement_speed:float
 @export var slow_movement_time : float
-var target := Vector2(0,0)
 var light_house_direction := Vector2(0,0)
 var flee := false
 var movement_speed : float
 var have_enterd_screen_once := false
+var target : Lighthouse
 
 signal ghost_boat_died(score:int)
 
@@ -25,6 +25,10 @@ func _physics_process(delta: float) -> void:
 	else :
 		offset = light_house_direction * movement_speed * delta	
 	global_translate(offset)
+	if(!target || life <= 0):
+		return
+	if target.light.isStopped && Darkness.is_in_light(global_position):
+		on_light_overlapp(1)
 
 func _ready() -> void:
 	collider.area_entered.connect(area_entered)
@@ -33,9 +37,10 @@ func _ready() -> void:
 	slow_movement_timer.timeout.connect(on_set_back_normal_speed)
 	movement_speed = normal_movement_speed
 	
-func set_movement_direction(target:Vector2) ->void:
-		light_house_direction = (target - global_position).normalized()
-	
+func set_target(t:Lighthouse) ->void:
+	target = t 
+	print(target)
+	light_house_direction = (t.global_position - global_position).normalized()
 
 func on_set_back_normal_speed() -> void :
 	movement_speed = normal_movement_speed
@@ -63,5 +68,6 @@ func on_light_overlapp(damage : float) -> void:
 		if	!slow_movement_timer.is_stopped() :
 			slow_movement_timer.stop()
 		slow_movement_timer.start(slow_movement_time)
+	print(life)
 		
 		

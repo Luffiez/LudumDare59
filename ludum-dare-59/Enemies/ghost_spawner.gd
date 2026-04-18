@@ -10,11 +10,9 @@ class_name  GhostSpawner
 @export var min_spawn_time : float
 @export var reduce_spawn_timer_time: float
 @export var spawn_time_reducement:float
-@export var target : Node2D
+@export var target : Lighthouse
 var spawn_time : float
 var game_over := false
-
-
 
 func _ready() -> void:
 	spawn_timer.timeout.connect(spawn_enemy)
@@ -40,5 +38,5 @@ func spawn_enemy() -> void :
 	var new_enemy := ghost_boat_scene.instantiate() as GhostBoat
 	add_child(new_enemy)
 	new_enemy.global_position = spawn_position
-	new_enemy.set_movement_direction(target.global_position)
+	new_enemy.set_target(target)
 	spawn_timer.start(spawn_time)
