@@ -14,11 +14,13 @@ position = Vector2(2, -2)
 [node name="Lighthouse" parent="." unique_id=581975050 instance=ExtResource("3_r3we0")]
 position = Vector2(841, 489)
 
-[node name="ControlsUI" parent="." unique_id=1060063773 instance=ExtResource("4_ujner")]
+[node name="ControlsUI" parent="." unique_id=1060063773 node_paths=PackedStringArray("light_house") instance=ExtResource("4_ujner")]
+light_house = NodePath("../Lighthouse")
 
-[node name="GhostSpawner" parent="." unique_id=1644450088 node_paths=PackedStringArray("spawn_line", "target") instance=ExtResource("4_r3we0")]
+[node name="GhostSpawner" parent="." unique_id=1644450088 node_paths=PackedStringArray("spawn_line", "target", "game_ui") instance=ExtResource("4_r3we0")]
 spawn_line = NodePath("../GhostSpawnLine")
 target = NodePath("../Lighthouse")
+game_ui = NodePath("../ControlsUI")
 
 [node name="GhostSpawnLine" parent="." unique_id=443372404 instance=ExtResource("5_ymxrj")]
 position = Vector2(496, 274)

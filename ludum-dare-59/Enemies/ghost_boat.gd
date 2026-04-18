@@ -1,6 +1,7 @@
 extends Node2D
 
 class_name  GhostBoat
+const  lightHouseNodeName := "Lighthouse"
 
 @export var collider : Area2D
 @export var animatedSprite: AnimatedSprite2D
@@ -15,6 +16,7 @@ var flee := false
 var movement_speed : float
 var have_enterd_screen_once := false
 var target : Lighthouse
+
 
 signal ghost_boat_died(score:int)
 
@@ -55,8 +57,13 @@ func screen_exited()-> void :
 	
 	
 func area_entered (collision:Area2D) -> void:
-	var owner =	collision.owner
-	  
+	var parent = collision.get_parent()
+	if parent is Lighthouse:
+		var light_house = parent as Lighthouse
+		if (!light_house.game_over):
+			light_house.game_over = true
+			light_house.on_game_over.emit() 
+ 
 func on_light_overlapp(damage : float) -> void:
 	life -= damage
 	if life <= 0:
@@ -70,4 +77,7 @@ func on_light_overlapp(damage : float) -> void:
 		slow_movement_timer.start(slow_movement_time)
 	print(life)
 		
+		
+func on_game_over () -> void:
+	var apa = true
 		

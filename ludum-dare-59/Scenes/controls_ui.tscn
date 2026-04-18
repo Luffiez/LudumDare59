@@ -1,16 +1,21 @@
 [gd_scene format=3 uid="uid://mmtfb4sqe4n1"]
 
+[ext_resource type="Script" uid="uid://b1y6gk2j8wa61" path="res://Scenes/game_ui.gd" id="1_6khg8"]
 [ext_resource type="Texture2D" uid="uid://lbtsay5r0ff" path="res://sprites/mouse_left_outline.png" id="1_drr47"]
 [ext_resource type="Texture2D" uid="uid://cm7112hlkknju" path="res://sprites/mouse_right_outline.png" id="1_rqqra"]
 [ext_resource type="Texture2D" uid="uid://1et03mbf5sax" path="res://sprites/boat.png" id="3_d7oy3"]
 
-[node name="GameUI" type="Control" unique_id=1060063773]
+[node name="GameUI" type="Control" unique_id=1060063773 node_paths=PackedStringArray("screen_center", "game_over_text", "scoreButton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_6khg8")
+screen_center = NodePath("CanvasLayer/CenterPosition")
+game_over_text = NodePath("CanvasLayer/GameOverText")
+scoreButton = NodePath("CanvasLayer/Score")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=484467060]
 
@@ -85,3 +90,40 @@ text = "[b]Objective[/b]
 Repel all incoming ships by focusing the lighthouses lamp on them."
 fit_content = true
 scroll_active = false
+
+[node name="GameOverText" type="RichTextLabel" parent="CanvasLayer" unique_id=647690796]
+custom_minimum_size = Vector2(200, 150)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -1005.0
+offset_right = 100.0
+offset_bottom = -855.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.4498944, 1.72)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[tornado][center][color=red][wave amp=50.0 freq=4 connected=1][shake Rate=0.2 level=4 connected=1]
+Game Over[/shake][/wave][/color][/center][/tornado]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="CenterPosition" type="RichTextLabel" parent="CanvasLayer" unique_id=1422629200]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
