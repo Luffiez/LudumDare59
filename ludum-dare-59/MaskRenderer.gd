@@ -35,13 +35,22 @@ func _draw():
 				var scaled = _scale_to_mask(r.size.length())
 				draw_rect(Rect2(pos - Vector2(scaled, scaled), Vector2(scaled, scaled) * 2), Color(1, 1, 1))
 			DarknessManager.Shape.CONE:
-				_draw_cone_mask(pos, r.size.length, r.size.angle, r.node.rotation)
+				_draw_cone_mask(pos, r.size.length, r.size.angle, r.node.rotation, r.size.get("start_radius", 0.0))
 
-func _draw_cone_mask(pos: Vector2, length: float, cone_angle: float, direction: float):
+func _draw_cone_mask(pos: Vector2, length: float, cone_angle: float, direction: float, start_radius: float = 0.0):
 	var scaled_length = _scale_to_mask(length)
-	var points = [pos]
+	var scaled_start = _scale_to_mask(start_radius)
 	var steps = 24
+	var points: Array = []
+
+	# Start arc (inner edge)
 	for i in range(steps + 1):
 		var angle = direction - cone_angle / 2.0 + (cone_angle / steps) * i
+		points.append(pos + Vector2(cos(angle), sin(angle)) * scaled_start)
+
+	# End arc (outer edge) — reversed so polygon winds correctly
+	for i in range(steps, -1, -1):
+		var angle = direction - cone_angle / 2.0 + (cone_angle / steps) * i
 		points.append(pos + Vector2(cos(angle), sin(angle)) * scaled_length)
+
 	draw_polygon(points, [Color(1, 1, 1)])

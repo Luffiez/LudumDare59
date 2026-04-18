@@ -11,7 +11,8 @@ class_name Lighthouse
 func _ready():
 	Darkness.register_revealer(self, DarknessManager.Shape.CONE, {
 		"length": cone_length,
-		"angle": cone_angle
+		"angle": cone_angle,
+		"start_radius": 15
 	})
 func _process(delta):
 	if(Input.is_action_pressed("stop")):
