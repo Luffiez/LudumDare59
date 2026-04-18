@@ -10,7 +10,7 @@ var revealers: Array = []
 var mask_texture: ImageTexture  # publicly accessible
 
 func _ready():
-	var shader = load("res://darkness.gdshader")
+	var shader = load("res://Shaders/darkness.gdshader")
 	var shader_material = ShaderMaterial.new()
 	shader_material.shader = shader
 	material = shader_material

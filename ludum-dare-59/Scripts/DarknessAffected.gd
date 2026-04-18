@@ -5,9 +5,9 @@ enum VisibilityType { HIDDEN, WATER }
 @export var visibility_type: VisibilityType = VisibilityType.HIDDEN
 
 func _ready():
-	var shader_path = "res://hidden_object.gdshader"
+	var shader_path = "res://Shaders/hidden_object.gdshader"
 	if visibility_type == VisibilityType.WATER:
-		shader_path = "res://water.gdshader"
+		shader_path = "res://Shaders/water.gdshader"
 
 	var mat = ShaderMaterial.new()
 	mat.shader = load(shader_path)

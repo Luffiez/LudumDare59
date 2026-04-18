@@ -1,13 +1,12 @@
 [gd_scene format=4 uid="uid://ce1i6fqv4rw1j"]
 
-[ext_resource type="Shader" uid="uid://cfd57nd0cym42" path="res://darkness.gdshader" id="1_wbfu4"]
-[ext_resource type="Script" uid="uid://qcr4gf36a3sp" path="res://Lighthouse.gd" id="3_u44n3"]
-[ext_resource type="Texture2D" uid="uid://5yvx7kcnbqy" path="res://icon.svg" id="4_sb48q"]
-[ext_resource type="Shader" uid="uid://bss2u6qg8dity" path="res://hidden_object.gdshader" id="4_t88pq"]
+[ext_resource type="Shader" uid="uid://cfd57nd0cym42" path="res://Shaders/darkness.gdshader" id="1_wbfu4"]
+[ext_resource type="Script" uid="uid://qcr4gf36a3sp" path="res://Scripts/Lighthouse.gd" id="3_u44n3"]
 [ext_resource type="Texture2D" uid="uid://cafdvqs8hr8wl" path="res://sprites/water2.png" id="5_joorw"]
-[ext_resource type="Script" uid="uid://br5igjnsngkir" path="res://DarknessAffected.gd" id="6_3mrqo"]
-[ext_resource type="Shader" uid="uid://c7quybsvoi863" path="res://Water.gdshader" id="6_r0x5m"]
+[ext_resource type="Script" uid="uid://br5igjnsngkir" path="res://Scripts/DarknessAffected.gd" id="6_3mrqo"]
+[ext_resource type="Shader" uid="uid://c7quybsvoi863" path="res://Shaders/Water.gdshader" id="6_r0x5m"]
 [ext_resource type="Texture2D" uid="uid://bfb2twmvrrx0o" path="res://sprites/water.png" id="7_3mrqo"]
+[ext_resource type="PackedScene" uid="uid://doq1yyd35wqeq" path="res://Enemies/GhostBoat.tscn" id="7_joorw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xkndl"]
 shader = ExtResource("1_wbfu4")
@@ -30,10 +29,6 @@ texture = ExtResource("5_joorw")
 sources/0 = SubResource("TileSetAtlasSource_2vekm")
 sources/1 = SubResource("TileSetAtlasSource_yx171")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_r0x5m"]
-shader = ExtResource("4_t88pq")
-shader_parameter/edge_softness = 0.02
-
 [node name="Game" type="Node2D" unique_id=1961527218]
 
 [node name="Darkness" type="Node" parent="." unique_id=2039705872]
@@ -53,6 +48,7 @@ position = Vector2(560, 323)
 script = ExtResource("3_u44n3")
 cone_length = 1000.0
 rotation_speed = -0.8
+rotation_speed_boosted = -1.5
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1214591537]
 material = SubResource("ShaderMaterial_joorw")
@@ -61,10 +57,5 @@ tile_set = SubResource("TileSet_r0x5m")
 script = ExtResource("6_3mrqo")
 visibility_type = 1
 
-[node name="Boat" type="Sprite2D" parent="." unique_id=1851748768]
-material = SubResource("ShaderMaterial_r0x5m")
-position = Vector2(174, 233)
-rotation = 3.1415927
-scale = Vector2(0.54664326, -0.3733092)
-texture = ExtResource("4_sb48q")
-script = ExtResource("6_3mrqo")
+[node name="GhostBoat" parent="." unique_id=1054152210 instance=ExtResource("7_joorw")]
+position = Vector2(151, 98)
