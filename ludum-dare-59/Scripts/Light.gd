@@ -10,14 +10,15 @@ extends Node2D
 var isStopped : bool
 
 func _ready():
+	var size = get_viewport().get_visible_rect().size
+	var center = Vector2(size.x / 2, size.y /2)
+	get_parent().global_position = center
+	
 	Darkness.register_revealer(self, DarknessManager.Shape.CONE, {
 		"length": cone_length,
 		"angle": cone_angle,
 		"start_radius": 15
 	})
-	var size = get_viewport().get_visible_rect().size
-	var center = Vector2(size.x / 2, size.y /2)
-	get_parent().global_position = center
 
 func _process(delta):
 	isStopped = Input.is_action_pressed("stop")

@@ -35,7 +35,7 @@ func _draw():
 				var scaled = _scale_to_mask(r.size.length())
 				draw_rect(Rect2(pos - Vector2(scaled, scaled), Vector2(scaled, scaled) * 2), Color(1, 1, 1))
 			DarknessManager.Shape.CONE:
-				_draw_cone_mask(pos, r.size.length, r.size.angle, r.node.rotation, r.size.get("start_radius", 0.0))
+				_draw_cone_mask(pos, r.size.length, r.size.angle, r.node.global_rotation, r.size.get("start_radius", 0.0))
 
 func _draw_cone_mask(pos: Vector2, length: float, cone_angle: float, direction: float, start_radius: float = 0.0):
 	var scaled_length = _scale_to_mask(length)
