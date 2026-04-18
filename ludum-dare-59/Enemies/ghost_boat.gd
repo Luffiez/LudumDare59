@@ -65,8 +65,11 @@ func area_entered (collision:Area2D) -> void:
 			light_house.on_game_over.emit() 
  
 func on_light_overlapp(damage : float) -> void:
+	if flee:
+		return
 	life -= damage
 	if life <= 0:
+		ghost_boat_died.emit(1)
 		flee = true
 		movement_speed = normal_movement_speed
 		slow_movement_timer.stop()

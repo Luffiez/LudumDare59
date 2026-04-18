@@ -11,8 +11,8 @@ func _ready() -> void:
 	light_house.on_game_over.connect(on_game_over)
 
 	
-func gain_score(score:int)->void:
-	score += score
+func gain_score(score_to_add:int)->void:
+	score += score_to_add
 	scoreButton.text = str(score)
 
 
