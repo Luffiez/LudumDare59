@@ -52,5 +52,5 @@ func _draw_cone_mask(pos: Vector2, length: float, cone_angle: float, direction: 
 	for i in range(steps, -1, -1):
 		var angle = direction - cone_angle / 2.0 + (cone_angle / steps) * i
 		points.append(pos + Vector2(cos(angle), sin(angle)) * scaled_length)
-
+	draw_circle(pos, 5, Color(1, 1, 1))
 	draw_polygon(points, [Color(1, 1, 1)])

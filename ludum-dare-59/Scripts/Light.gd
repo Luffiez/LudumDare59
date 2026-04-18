@@ -17,7 +17,7 @@ func _ready():
 	Darkness.register_revealer(self, DarknessManager.Shape.CONE, {
 		"length": cone_length,
 		"angle": cone_angle,
-		"start_radius": 15
+		"start_radius": 5
 	})
 
 func _process(delta):

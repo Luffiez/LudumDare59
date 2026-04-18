@@ -1,19 +1,44 @@
 [gd_scene format=3 uid="uid://cqb7xx4e831jb"]
 
 [ext_resource type="Script" uid="uid://qcr4gf36a3sp" path="res://Scripts/Lighthouse.gd" id="1_uwk5y"]
-[ext_resource type="Texture2D" uid="uid://bk2pcojia61hj" path="res://sprites/lighthouse.png" id="2_u74n1"]
+[ext_resource type="Texture2D" uid="uid://dft5it1256iui" path="res://sprites/lighthouse-sheet.png" id="2_lf2i3"]
 [ext_resource type="Script" uid="uid://s8uygjvdgb1d" path="res://Scripts/LighthouseDarkness.gd" id="3_1jr6b"]
 [ext_resource type="Script" uid="uid://c341fvmfppxhk" path="res://Scripts/Light.gd" id="4_lf2i3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wknik"]
+atlas = ExtResource("2_lf2i3")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdxl1"]
+atlas = ExtResource("2_lf2i3")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m2fn1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wknik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdxl1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lf2i3"]
 radius = 15.0
 
-[node name="Lighthouse" type="Node2D" unique_id=581975050 node_paths=PackedStringArray("light")]
+[node name="Lighthouse" type="Node2D" unique_id=581975050 node_paths=PackedStringArray("light", "anim")]
 script = ExtResource("1_uwk5y")
 light = NodePath("Light")
+anim = NodePath("AnimatedSprite2D")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=776151876]
-texture = ExtResource("2_u74n1")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1365796544]
+sprite_frames = SubResource("SpriteFrames_m2fn1")
+animation = &"idle"
+frame_progress = 0.5862376
 script = ExtResource("3_1jr6b")
 
 [node name="Light" type="Node2D" parent="." unique_id=205062943]
@@ -24,6 +49,7 @@ rotation_speed = -1.0
 rotation_speed_boosted = -3.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=206081430]
+visible = false
 position = Vector2(0, 14.97)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1182416773]

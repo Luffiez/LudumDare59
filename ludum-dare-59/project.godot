@@ -13,7 +13,7 @@ config_version=5
 config/name="LudumDare59"
 run/main_scene="uid://ce1i6fqv4rw1j"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="uid://1et03mbf5sax"
+config/icon="uid://cxwh0vkufox54"
 
 [audio]
 
