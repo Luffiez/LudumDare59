@@ -17,7 +17,7 @@ screen_center = NodePath("CanvasLayer/CenterPosition")
 game_over_text = NodePath("CanvasLayer/GameOverText")
 scoreButton = NodePath("CanvasLayer/Score")
 game_over_buttons = NodePath("CanvasLayer/GameOverButtons")
-buttons_end = NodePath("CanvasLayer/RichTextLabel")
+buttons_end = NodePath("CanvasLayer/Buttons_end")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=484467060]
 
@@ -122,17 +122,17 @@ grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 
 [node name="GameOverButtons" type="VBoxContainer" parent="CanvasLayer" unique_id=210766358]
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -45.140015
-offset_top = 244.401
-offset_right = 45.140015
-offset_bottom = 346.10962
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = 840.0
+offset_right = 45.28003
+offset_bottom = 941.7086
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 alignment = 1
 
@@ -145,16 +145,16 @@ text = "Retry"
 layout_mode = 2
 text = "Quit"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=1555182682]
-anchors_preset = 7
+[node name="Buttons_end" type="RichTextLabel" parent="CanvasLayer" unique_id=1555182682]
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -280.0
-offset_right = 20.0
-offset_bottom = -239.99939
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = 30.0
+offset_right = -44.0
+offset_bottom = 31.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
