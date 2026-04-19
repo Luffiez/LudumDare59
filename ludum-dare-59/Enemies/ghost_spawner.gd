@@ -19,7 +19,7 @@ func _ready() -> void:
 	spawn_timer.timeout.connect(spawn_enemy)
 	spawn_time = start_spawn_time
 	spawn_timer.timeout.emit()
-	reduce_spawn_time_timer
+	reduce_spawn_time_timer.timeout.connect(reduce_spawn_time)
 	target.on_game_over.connect(on_game_over)
 	spawn_enemy()
 

@@ -16,7 +16,6 @@ func _ready() -> void:
 	quitbutton.pressed.connect(OnQuit)
 	playbutton.pressed.connect(OnPlay)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

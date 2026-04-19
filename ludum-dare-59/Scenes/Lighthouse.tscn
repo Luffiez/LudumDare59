@@ -1,33 +1,33 @@
 [gd_scene format=3 uid="uid://cqb7xx4e831jb"]
 
 [ext_resource type="Script" uid="uid://qcr4gf36a3sp" path="res://Scripts/Lighthouse.gd" id="1_uwk5y"]
-[ext_resource type="Texture2D" uid="uid://dft5it1256iui" path="res://sprites/lighthouse-sheet.png" id="2_lf2i3"]
+[ext_resource type="Texture2D" uid="uid://dc85d16ja82r8" path="res://sprites/Lighthouse-sheet.png" id="2_m2fn1"]
 [ext_resource type="Script" uid="uid://s8uygjvdgb1d" path="res://Scripts/LighthouseDarkness.gd" id="3_1jr6b"]
 [ext_resource type="Script" uid="uid://c341fvmfppxhk" path="res://Scripts/Light.gd" id="4_lf2i3"]
 [ext_resource type="AudioStream" uid="uid://cv52cepy1a6p3" path="res://Sound/Whoosh 3_2.wav" id="5_bdxl1"]
 [ext_resource type="AudioStream" uid="uid://dk8eouidkpcek" path="res://Sound/Whoosh 3_1.wav" id="6_m2fn1"]
 [ext_resource type="AudioStream" uid="uid://cl5g7k5xnlqgd" path="res://Sound/AC_Disappointment_01.wav" id="7_m2fn1"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wknik"]
-atlas = ExtResource("2_lf2i3")
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnsid"]
+atlas = ExtResource("2_m2fn1")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bdxl1"]
-atlas = ExtResource("2_lf2i3")
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5k77"]
+atlas = ExtResource("2_m2fn1")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_m2fn1"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_lcewq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wknik")
+"texture": SubResource("AtlasTexture_jnsid")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bdxl1")
+"texture": SubResource("AtlasTexture_n5k77")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 1.0
+"speed": 2.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lf2i3"]
@@ -40,9 +40,9 @@ light = NodePath("Light")
 anim = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1365796544]
-sprite_frames = SubResource("SpriteFrames_m2fn1")
+sprite_frames = SubResource("SpriteFrames_lcewq")
 animation = &"idle"
-frame_progress = 0.5862376
+frame_progress = 0.7064212
 script = ExtResource("3_1jr6b")
 
 [node name="Light" type="Node2D" parent="." unique_id=205062943]
