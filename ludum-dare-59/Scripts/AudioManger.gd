@@ -26,11 +26,12 @@ func play_music(stream: AudioStream, volume_db := 0.0):
 func stop_music():
 	music_player.stop()
 
-func play_sfx(stream: AudioStream, volume_db := 0.0):
+func play_sfx(stream: AudioStream, volume_db := 0.0, pitch :=1):
 	for player in sfx_players:
 		if not player.playing:
 			player.stream = stream
 			player.volume_db = volume_db
+			player.pitch_scale = pitch
 			player.play()
 			return
 

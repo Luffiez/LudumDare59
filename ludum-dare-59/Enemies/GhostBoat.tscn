@@ -3,8 +3,26 @@
 [ext_resource type="Script" uid="uid://44t4nfcih0co" path="res://Enemies/ghost_boat.gd" id="1_rk8w6"]
 [ext_resource type="Texture2D" uid="uid://21csiticsglw" path="res://sprites/exclamation.png" id="2_o60py"]
 [ext_resource type="AudioStream" uid="uid://q86yguqhlf8a" path="res://Sound/AC_Sweeping_Slide_01v2.wav" id="2_r6558"]
+[ext_resource type="AudioStream" uid="uid://k00iuupgrvj2" path="res://Sound/Pirate/Flee/GoARigSomewhereElse.wav" id="3_5uc35"]
 [ext_resource type="Texture2D" uid="uid://d8ccp6mh3s2u" path="res://sprites/pirateBoat-Sheet.png" id="3_o60py"]
 [ext_resource type="Script" uid="uid://br5igjnsngkir" path="res://Scripts/BoatDarkness.gd" id="3_y7jq1"]
+[ext_resource type="AudioStream" uid="uid://c2aja45a6o61u" path="res://Sound/Pirate/Flee/HoinSwerl.wav" id="4_35mf6"]
+[ext_resource type="AudioStream" uid="uid://blxkfmmoy13i0" path="res://Sound/Pirate/Flee/ScallyWag.wav" id="5_oxy5k"]
+[ext_resource type="AudioStream" uid="uid://we4udj6w4wtj" path="res://Sound/Pirate/Flee/ShiverMeTimbers.wav" id="6_js13d"]
+[ext_resource type="AudioStream" uid="uid://q7h5m4t5qjk7" path="res://Sound/Pirate/Flee/SonOfABiscuitEater.wav" id="7_b7wvk"]
+[ext_resource type="AudioStream" uid="uid://bec5dwjty26dv" path="res://Sound/Pirate/Flee/abandonShip.wav" id="8_0ytow"]
+[ext_resource type="AudioStream" uid="uid://bs4qjuf247ark" path="res://Sound/Pirate/GameOver/CanYouSwim.wav" id="9_1xpei"]
+[ext_resource type="AudioStream" uid="uid://ucexydn3maer" path="res://Sound/Pirate/GameOver/CareToJoinOurCrew.wav" id="10_d1luk"]
+[ext_resource type="AudioStream" uid="uid://jd0qc5f0vveq" path="res://Sound/Pirate/GameOver/DoYouNeeToWalkThePlank.wav" id="11_ek2g3"]
+[ext_resource type="AudioStream" uid="uid://8jmj01sad6to" path="res://Sound/Pirate/GameOver/IamAfraidYouDoNotHaveAChoice.wav" id="12_jqy3i"]
+[ext_resource type="AudioStream" uid="uid://cdq4e5sdo45gu" path="res://Sound/Pirate/GameOver/TimeForSongAndDance.wav" id="13_xcwcp"]
+[ext_resource type="AudioStream" uid="uid://c13f48kk0mbve" path="res://Sound/Pirate/GameOver/TimeToWalkThePlank.wav" id="14_fm1fk"]
+[ext_resource type="AudioStream" uid="uid://cp1p3dyopxaim" path="res://Sound/Pirate/GameOver/TimeToWisitDavidJonesLocker.wav" id="15_674lv"]
+[ext_resource type="AudioStream" uid="uid://13ir3ld7dqe1" path="res://Sound/Pirate/Spawn/Arrg.wav" id="16_xcwcp"]
+[ext_resource type="AudioStream" uid="uid://brp4lfifidoil" path="res://Sound/Pirate/Spawn/ArrgMeMatey.wav" id="17_fm1fk"]
+[ext_resource type="AudioStream" uid="uid://ci4rjocuux1gv" path="res://Sound/Pirate/Spawn/DeadManTellNoTales.wav" id="18_674lv"]
+[ext_resource type="AudioStream" uid="uid://bef1rhjokxww3" path="res://Sound/Pirate/Spawn/LandAhoo.wav" id="19_phrpp"]
+[ext_resource type="AudioStream" uid="uid://bq1a6c6ab1c2p" path="res://Sound/Pirate/Spawn/Laugh.wav" id="20_2hyio"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r6558"]
 atlas = ExtResource("3_o60py")
@@ -52,6 +70,11 @@ flee_movement_speed = 70.0
 slow_movement_speed = 1.0
 slow_movement_time = 1.0
 run_sfx = ExtResource("2_r6558")
+flee_sfx = Array[AudioStream]([ExtResource("3_5uc35"), ExtResource("4_35mf6"), ExtResource("5_oxy5k"), ExtResource("6_js13d"), ExtResource("7_b7wvk"), ExtResource("8_0ytow")])
+game_over_sfx = Array[AudioStream]([ExtResource("9_1xpei"), ExtResource("10_d1luk"), ExtResource("11_ek2g3"), ExtResource("12_jqy3i"), ExtResource("13_xcwcp"), ExtResource("14_fm1fk"), ExtResource("15_674lv")])
+spawn_sfx = Array[AudioStream]([ExtResource("16_xcwcp"), ExtResource("17_fm1fk"), ExtResource("18_674lv"), ExtResource("19_phrpp"), ExtResource("20_2hyio")])
+min_pitch = 0.2
+max_pitch = 0.5
 
 [node name="Visible_Indicator" type="Sprite2D" parent="." unique_id=15660540]
 visible = false

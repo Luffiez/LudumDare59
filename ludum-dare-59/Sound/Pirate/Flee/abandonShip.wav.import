@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bec5dwjty26dv"
-path="res://.godot/imported/abandonShip.wav-2ef62e2564031a42a5add59acb76f9b2.sample"
+path="res://.godot/imported/abandonShip.wav-df1439c38d72e001d87011385af4cffd.sample"
 
 [deps]
 
-source_file="res://Sound/Pirate/GameOver/abandonShip.wav"
-dest_files=["res://.godot/imported/abandonShip.wav-2ef62e2564031a42a5add59acb76f9b2.sample"]
+source_file="res://Sound/Pirate/Flee/abandonShip.wav"
+dest_files=["res://.godot/imported/abandonShip.wav-df1439c38d72e001d87011385af4cffd.sample"]
 
 [params]
 
