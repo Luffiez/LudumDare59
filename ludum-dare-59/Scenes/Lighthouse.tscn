@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dft5it1256iui" path="res://sprites/lighthouse-sheet.png" id="2_lf2i3"]
 [ext_resource type="Script" uid="uid://s8uygjvdgb1d" path="res://Scripts/LighthouseDarkness.gd" id="3_1jr6b"]
 [ext_resource type="Script" uid="uid://c341fvmfppxhk" path="res://Scripts/Light.gd" id="4_lf2i3"]
+[ext_resource type="AudioStream" uid="uid://cv52cepy1a6p3" path="res://Sound/Whoosh 3_2.wav" id="5_bdxl1"]
+[ext_resource type="AudioStream" uid="uid://dk8eouidkpcek" path="res://Sound/Whoosh 3_1.wav" id="6_m2fn1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wknik"]
 atlas = ExtResource("2_lf2i3")
@@ -31,6 +33,7 @@ animations = [{
 radius = 15.0
 
 [node name="Lighthouse" type="Node2D" unique_id=581975050 node_paths=PackedStringArray("light", "anim")]
+y_sort_enabled = true
 script = ExtResource("1_uwk5y")
 light = NodePath("Light")
 anim = NodePath("AnimatedSprite2D")
@@ -48,6 +51,8 @@ cone_length = 750.0
 rotation_speed = -1.0
 rotation_speed_boosted = -3.0
 gameover_decrease_speed = 0.65
+slow_sfx = ExtResource("5_bdxl1")
+fast_sfx = ExtResource("6_m2fn1")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=206081430]
 visible = false
