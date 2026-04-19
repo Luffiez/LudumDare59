@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://nccwbypa8a1n" path="res://Enemies/GhostSpawner.tscn" id="4_r3we0"]
 [ext_resource type="PackedScene" uid="uid://mmtfb4sqe4n1" path="res://Scenes/controls_ui.tscn" id="4_ujner"]
 [ext_resource type="PackedScene" uid="uid://bh3vysjrsyd1i" path="res://Enemies/GhostSpawnLine.tscn" id="5_ymxrj"]
+[ext_resource type="Script" uid="uid://c2tj3pye6ntg7" path="res://Scenes/Levels/music_starter.gd" id="6_ymxrj"]
+[ext_resource type="AudioStream" uid="uid://cs00k3n652m2s" path="res://Sound/Music/merchants_and_sea_salt.wav" id="7_scfki"]
+[ext_resource type="AudioStream" uid="uid://wdb5c2pl4v3d" path="res://Sound/freetousesounds - Ocean Sounds & Open Waves Sound Effects! 44 Locations - 08 Bali Seseh Beach Canggu.mp3" id="8_8ghn0"]
 
 [node name="Game" type="Node2D" unique_id=1961527218]
 
@@ -29,3 +32,9 @@ position = Vector2(481, 445)
 
 [node name="GhostSpawnLine" parent="." unique_id=443372404 instance=ExtResource("5_ymxrj")]
 position = Vector2(0, -1.06)
+
+[node name="music_starter" type="Node2D" parent="." unique_id=1247185439]
+script = ExtResource("6_ymxrj")
+music = ExtResource("7_scfki")
+music_strength = -10.0
+ambietence = ExtResource("8_8ghn0")

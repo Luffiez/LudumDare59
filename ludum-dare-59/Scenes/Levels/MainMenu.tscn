@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://csp50s1w6ev76" path="res://sprites/bg.png" id="1_v2at7"]
 [ext_resource type="AudioStream" uid="uid://wdb5c2pl4v3d" path="res://Sound/freetousesounds - Ocean Sounds & Open Waves Sound Effects! 44 Locations - 08 Bali Seseh Beach Canggu.mp3" id="5_0t1wx"]
 [ext_resource type="AudioStream" uid="uid://yhu6a3ocr5ue" path="res://Sound/Click (12).wav" id="5_cwjnk"]
+[ext_resource type="AudioStream" uid="uid://y5losirdwr5i" path="res://Sound/Music/oga_jam_menu_music_loopable.wav" id="6_82l7r"]
 [ext_resource type="Script" uid="uid://ej1jhpjah1iy" path="res://Scenes/Levels/SkyObject.gd" id="7_8dgdn"]
 [ext_resource type="Texture2D" uid="uid://d0seukng7g4r7" path="res://sprites/birds.png" id="8_ybd2e"]
 [ext_resource type="Texture2D" uid="uid://cbjksxo8fntpv" path="res://sprites/cloud.png" id="9_ybd2e"]
@@ -78,7 +79,9 @@ texture = ExtResource("1_koonp")
 
 [node name="MainMenuUi" parent="." unique_id=1454055682 instance=ExtResource("1_i26rj")]
 clickSfx = ExtResource("5_cwjnk")
-bgm = ExtResource("5_0t1wx")
+bgm = ExtResource("6_82l7r")
+ambitience = ExtResource("5_0t1wx")
+music_strength = -20.0
 
 [node name="Birds" type="Node2D" parent="." unique_id=524822240 node_paths=PackedStringArray("pathFollow")]
 position = Vector2(0, -235)
