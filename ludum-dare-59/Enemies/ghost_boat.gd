@@ -19,6 +19,7 @@ var flee := false
 var movement_speed : float
 var have_enterd_screen_once := false
 var target : Lighthouse
+var flipped_sprite := false
 
 
 signal ghost_boat_died(score:int)
@@ -46,6 +47,9 @@ func set_target(t:Lighthouse) ->void:
 	target = t 
 	print(target)
 	light_house_direction = (t.global_position - global_position).normalized()
+	flipped_sprite =  target.global_position.x < global_position.x
+	animatedSprite.flip_h = flipped_sprite
+	
 
 func on_set_back_normal_speed() -> void :
 	movement_speed = normal_movement_speed
@@ -77,7 +81,7 @@ func on_light_overlapp(damage : float) -> void:
 		ghost_boat_died.emit(1)
 		flee = true
 		indicator.visible = false
-		
+		animatedSprite.flip_h = !flipped_sprite
 		movement_speed = flee_movement_speed
 		slow_movement_timer.stop()
 	else :
@@ -89,5 +93,5 @@ func on_light_overlapp(damage : float) -> void:
 		
 		
 func on_game_over () -> void:
-	var apa = true
+	pass
 		
