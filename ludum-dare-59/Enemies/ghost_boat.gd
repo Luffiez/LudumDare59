@@ -21,7 +21,6 @@ var have_enterd_screen_once := false
 var target : Lighthouse
 var flipped_sprite := false
 
-
 signal ghost_boat_died(score:int)
 
 func _physics_process(delta: float) -> void:
@@ -53,7 +52,6 @@ func set_target(t:Lighthouse) ->void:
 	animatedSprite.flip_h = flipped_sprite
 	animatedSprite.play("default")
 	
-
 func on_set_back_normal_speed() -> void :
 	movement_speed = normal_movement_speed
 
@@ -65,7 +63,6 @@ func screen_exited()-> void :
 		#remove boat and add score
 		queue_free()
 	
-	
 func area_entered (collision:Area2D) -> void:
 	var parent = collision.get_parent()
 	if parent is Lighthouse:
@@ -73,6 +70,7 @@ func area_entered (collision:Area2D) -> void:
 		if (!light_house.game_over):
 			light_house.game_over = true
 			light_house.on_game_over.emit() 
+		set_physics_process(false)
  
 func on_light_overlapp(damage : float) -> void:
 	if flee:
@@ -92,8 +90,7 @@ func on_light_overlapp(damage : float) -> void:
 		if	!slow_movement_timer.is_stopped() :
 			slow_movement_timer.stop()
 		slow_movement_timer.start(slow_movement_time)
-	print(life)
-		
+	#print(life)
 		
 func on_game_over () -> void:
 	pass

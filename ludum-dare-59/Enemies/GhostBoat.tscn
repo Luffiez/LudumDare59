@@ -38,6 +38,7 @@ animations = [{
 radius = 14.0
 
 [node name="GhostBoat" type="Node2D" unique_id=1054152210 node_paths=PackedStringArray("collider", "animatedSprite", "indicator", "visibleNotifier", "slow_movement_timer")]
+y_sort_enabled = true
 script = ExtResource("1_rk8w6")
 collider = NodePath("AnimatedSprite2D/Area2D")
 animatedSprite = NodePath("AnimatedSprite2D")
