@@ -28,13 +28,13 @@ func reduce_spawn_time () -> void:
 		spawn_time = min_spawn_time
 	else:
 		reduce_spawn_time_timer.start(reduce_spawn_timer_time)
-	print("spawn")
+	#print("spawn")
 
 func spawn_enemy() ->  void :
 	if  game_over:
 		return
 	var random_float := randf_range(0,1)
-	print(random_float)
+	#print(random_float)
 	spawn_line.set_progress_ratio(random_float)
 	var spawn_position =  spawn_line.get_spawn_global_position()
 	var new_enemy := ghost_boat_scene.instantiate() as GhostBoat

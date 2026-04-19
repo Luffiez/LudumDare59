@@ -103,7 +103,7 @@ grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
-text = "[tornado][center][color=red][wave amp=50.0 freq=4 connected=1][shake Rate=0.2 level=4 connected=1]
+text = "[tornado][center][color=#c34747][wave amp=50.0 freq=4 connected=1][shake Rate=0.2 level=4 connected=1]
 Game Over[/shake][/wave][/color][/center][/tornado]"
 scroll_active = false
 horizontal_alignment = 1
