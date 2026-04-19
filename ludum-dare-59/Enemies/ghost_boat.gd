@@ -33,8 +33,10 @@ func _physics_process(delta: float) -> void:
 	global_translate(offset)
 	if(!target || life <= 0):
 		return
-	if target.light.isStopped && Darkness.is_in_light(global_position):
+	if target.light.isStopped && Darkness.is_in_light(global_position, collider):
 		on_light_overlapp(1)
+	elif indicator.visible:
+		indicator.visible = false
 
 func _ready() -> void:
 	collider.area_entered.connect(area_entered)
