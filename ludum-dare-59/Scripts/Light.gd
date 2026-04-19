@@ -9,6 +9,7 @@ extends Node2D
 @export var gameover_decrease_speed: float = 0.5  # radians per second
 @export var slow_sfx : AudioStream
 @export var fast_sfx : AudioStream
+@export var gameover_sfx : AudioStream
 
 var isStopped : bool
 var gameOver : bool
@@ -59,6 +60,7 @@ func _exit_tree():
 	
 func on_game_over():
 	gameOver = true
+	AudioManager.play_sfx(gameover_sfx)
 	
 func game_over_logic(delta):
 	rotation_speed += gameover_decrease_speed * delta
