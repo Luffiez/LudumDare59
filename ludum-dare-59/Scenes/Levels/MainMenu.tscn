@@ -6,6 +6,16 @@
 [ext_resource type="Texture2D" uid="uid://csp50s1w6ev76" path="res://sprites/bg.png" id="1_v2at7"]
 [ext_resource type="AudioStream" uid="uid://wdb5c2pl4v3d" path="res://freetousesounds - Ocean Sounds & Open Waves Sound Effects! 44 Locations - 08 Bali Seseh Beach Canggu.mp3" id="5_0t1wx"]
 [ext_resource type="AudioStream" uid="uid://yhu6a3ocr5ue" path="res://Click (12).wav" id="5_cwjnk"]
+[ext_resource type="Script" uid="uid://ej1jhpjah1iy" path="res://Scenes/Levels/SkyObject.gd" id="7_8dgdn"]
+[ext_resource type="Texture2D" uid="uid://d0seukng7g4r7" path="res://sprites/birds.png" id="8_ybd2e"]
+[ext_resource type="Texture2D" uid="uid://cbjksxo8fntpv" path="res://sprites/cloud.png" id="9_ybd2e"]
+[ext_resource type="Texture2D" uid="uid://3g1jincim8t0" path="res://sprites/gradient.png" id="10_x0g5v"]
+
+[sub_resource type="Curve2D" id="Curve2D_x0g5v"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1000, 0, 0, 0, 0, 0, 1000, 0)
+}
+point_count = 2
 
 [node name="MainMenu" type="Node2D" unique_id=781887490]
 
@@ -69,3 +79,69 @@ texture = ExtResource("1_koonp")
 [node name="MainMenuUi" parent="." unique_id=1454055682 instance=ExtResource("1_i26rj")]
 clickSfx = ExtResource("5_cwjnk")
 bgm = ExtResource("5_0t1wx")
+
+[node name="Birds" type="Node2D" parent="." unique_id=524822240 node_paths=PackedStringArray("pathFollow")]
+position = Vector2(0, -235)
+script = ExtResource("7_8dgdn")
+pathFollow = NodePath("Path2D/PathFollow2D")
+speed = 0.025
+
+[node name="Path2D" type="Path2D" parent="Birds" unique_id=161643935]
+curve = SubResource("Curve2D_x0g5v")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Birds/Path2D" unique_id=1382625073]
+position = Vector2(1000.0001, 0)
+progress = 1999.9996
+
+[node name="Sprite2D" type="Sprite2D" parent="Birds/Path2D/PathFollow2D" unique_id=1859685079]
+scale = Vector2(2, 2)
+texture = ExtResource("8_ybd2e")
+
+[node name="Clouds" type="Node2D" parent="." unique_id=1161574226 node_paths=PackedStringArray("pathFollow")]
+position = Vector2(-3, -235)
+script = ExtResource("7_8dgdn")
+pathFollow = NodePath("Path2D/PathFollow2D")
+speed = 0.01
+randomizeStart = true
+
+[node name="Path2D" type="Path2D" parent="Clouds" unique_id=749512047]
+curve = SubResource("Curve2D_x0g5v")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Clouds/Path2D" unique_id=529262388]
+position = Vector2(1000.0001, 0)
+progress = 1999.9996
+
+[node name="Sprite2D" type="Sprite2D" parent="Clouds/Path2D/PathFollow2D" unique_id=968083619]
+position = Vector2(97.99988, 6)
+scale = Vector2(2, 2)
+texture = ExtResource("9_ybd2e")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Clouds/Path2D/PathFollow2D" unique_id=546543240]
+position = Vector2(-484.00012, -10)
+scale = Vector2(2, 2)
+texture = ExtResource("9_ybd2e")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Clouds/Path2D/PathFollow2D" unique_id=408923011]
+position = Vector2(669.99994, -12)
+scale = Vector2(2, 2)
+texture = ExtResource("9_ybd2e")
+
+[node name="WhiteGradient" type="Sprite2D" parent="." unique_id=1102000017]
+modulate = Color(1, 1, 1, 0.3137255)
+position = Vector2(-12.000001, -207)
+rotation = 3.1415927
+scale = Vector2(40, 10)
+texture = ExtResource("10_x0g5v")
+
+[node name="WhiteGradient2" type="Sprite2D" parent="." unique_id=435515018]
+modulate = Color(2.3133948, 1.5748148, 1.2582805, 0.3137255)
+position = Vector2(170.00002, -246)
+rotation = 3.4906585
+scale = Vector2(40, 20)
+texture = ExtResource("10_x0g5v")
+
+[node name="BlackGradient" type="Sprite2D" parent="." unique_id=1988594785]
+modulate = Color(0, 0, 0, 0.80784315)
+position = Vector2(-99.000046, 228)
+scale = Vector2(40, 10)
+texture = ExtResource("10_x0g5v")
