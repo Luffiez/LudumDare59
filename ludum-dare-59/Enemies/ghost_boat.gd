@@ -54,13 +54,13 @@ func set_target(t:Lighthouse) ->void:
 	
 func on_set_back_normal_speed() -> void :
 	movement_speed = normal_movement_speed
+	animatedSprite.play("default",1)
 
 func screen_enterd()-> void :
 	have_enterd_screen_once = true
 
 func screen_exited()-> void :
-	if have_enterd_screen_once:
-		#remove boat and add score
+	if  have_enterd_screen_once:
 		queue_free()
 	
 func area_entered (collision:Area2D) -> void:
@@ -86,10 +86,12 @@ func on_light_overlapp(damage : float) -> void:
 		movement_speed = flee_movement_speed
 		slow_movement_timer.stop()
 		AudioManager.play_sfx(run_sfx, -5)
+		animatedSprite.play("default",2)
 	else :
 		movement_speed = slow_movement_speed
 		if	!slow_movement_timer.is_stopped() :
 			slow_movement_timer.stop()
+		animatedSprite.play("default",0)
 		slow_movement_timer.start(slow_movement_time)
 	#print(life)
 		

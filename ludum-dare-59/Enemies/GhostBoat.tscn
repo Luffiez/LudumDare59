@@ -70,8 +70,8 @@ script = ExtResource("3_y7jq1")
 shape = SubResource("CircleShape2D_y7jq1")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1045026560]
-visible = false
-rect = Rect2(-63, -61, 124, 121)
+rect = Rect2(-16, -15, 31.839996, 29.89)
+show_rect = false
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=2115555456]
 
