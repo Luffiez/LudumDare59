@@ -22,8 +22,10 @@ spawn_line = NodePath("../GhostSpawnLine")
 target = NodePath("../Lighthouse")
 game_ui = NodePath("../ControlsUI")
 
-[node name="GhostSpawnLine" parent="." unique_id=443372404 instance=ExtResource("5_ymxrj")]
-position = Vector2(186, 231)
-
 [node name="Node2D" type="Node2D" parent="." unique_id=303890746]
 position = Vector2(481, 445)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=581803652]
+
+[node name="GhostSpawnLine" parent="." unique_id=443372404 instance=ExtResource("5_ymxrj")]
+position = Vector2(0, -1.06)
