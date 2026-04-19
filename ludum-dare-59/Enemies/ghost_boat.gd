@@ -59,8 +59,7 @@ func screen_enterd()-> void :
 	have_enterd_screen_once = true
 
 func screen_exited()-> void :
-	if have_enterd_screen_once:
-		#remove boat and add score
+	if  have_enterd_screen_once:
 		queue_free()
 	
 func area_entered (collision:Area2D) -> void:
