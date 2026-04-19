@@ -49,9 +49,9 @@ func _process(delta):
 		if !playedSfx:
 			playedSfx = true;
 			if boosted:
-				AudioManager.play_sfx(fast_sfx, -10)
+				AudioManager.play_sfx(fast_sfx, -5)
 			else:
-				AudioManager.play_sfx(slow_sfx, -10)
+				AudioManager.play_sfx(slow_sfx, -5)
 	elif playedSfx:
 		playedSfx = false
 

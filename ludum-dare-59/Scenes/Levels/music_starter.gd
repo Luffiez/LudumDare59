@@ -7,7 +7,7 @@ extends Node2D
 func _ready() -> void:
 	
 	AudioManager.play_music(music,music_strength)
-	var ambitience_playing := false
-	ambitience_playing = AudioManager.is_ambietence_playing()
-	if  !ambitience_playing:
-		AudioManager.play_ambietence(ambietence)
+	var ambience_playing := false
+	ambience_playing = AudioManager.is_ambience_playing()
+	if  !ambience_playing:
+		AudioManager.play_ambience(ambietence)
