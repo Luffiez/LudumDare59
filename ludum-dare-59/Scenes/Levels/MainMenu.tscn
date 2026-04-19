@@ -77,6 +77,7 @@ texture = ExtResource("1_koonp")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1195218309]
 
 [node name="MainMenuUi" parent="." unique_id=1454055682 instance=ExtResource("1_i26rj")]
+game_scene_path = "uid://ce1i6fqv4rw1j"
 clickSfx = ExtResource("5_cwjnk")
 bgm = ExtResource("5_0t1wx")
 
