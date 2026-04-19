@@ -17,7 +17,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y7jq1"]
-radius = 12.0
+radius = 14.0
 
 [node name="GhostBoat" type="Node2D" unique_id=1054152210 node_paths=PackedStringArray("collider", "animatedSprite", "indicator", "visibleNotifier", "slow_movement_timer")]
 script = ExtResource("1_rk8w6")
@@ -42,7 +42,6 @@ sprite_frames = SubResource("SpriteFrames_o60py")
 script = ExtResource("3_y7jq1")
 
 [node name="Area2D" type="Area2D" parent="AnimatedSprite2D" unique_id=1924590567]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D" unique_id=1834132774]
 shape = SubResource("CircleShape2D_y7jq1")
