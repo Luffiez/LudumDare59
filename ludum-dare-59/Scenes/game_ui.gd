@@ -6,18 +6,26 @@ class_name  GameUI
 @export var light_house : Lighthouse
 @export var game_over_buttons : VBoxContainer
 @export var buttons_end : RichTextLabel
+@export var retry_button : Button
+@export var quit_button:Button
 var score:=0
 
 func _ready() -> void:
 	scoreButton.text = str(score)
 	light_house.on_game_over.connect(on_game_over)
+	retry_button.pressed.connect(on_retry)
+	quit_button.pressed.connect(on_quit)
 
 	
 func gain_score(score_to_add:int)->void:
 	score += score_to_add
 	scoreButton.text = str(score)
 
-
+func on_quit()->void:
+	SceneManager.quit_game()
+	
+func on_retry()->void:
+	SceneManager.reload_scene()
 	
 func on_game_over()->void:
 	var tween := create_tween()

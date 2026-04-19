@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cm7112hlkknju" path="res://sprites/mouse_right_outline.png" id="1_rqqra"]
 [ext_resource type="Texture2D" uid="uid://1et03mbf5sax" path="res://sprites/boat.png" id="3_d7oy3"]
 
-[node name="GameUI" type="Control" unique_id=1060063773 node_paths=PackedStringArray("screen_center", "game_over_text", "scoreButton", "game_over_buttons", "buttons_end")]
+[node name="GameUI" type="Control" unique_id=1060063773 node_paths=PackedStringArray("screen_center", "game_over_text", "scoreButton", "game_over_buttons", "buttons_end", "retry_button", "quit_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,6 +18,8 @@ game_over_text = NodePath("CanvasLayer/GameOverText")
 scoreButton = NodePath("CanvasLayer/Score")
 game_over_buttons = NodePath("CanvasLayer/GameOverButtons")
 buttons_end = NodePath("CanvasLayer/RichTextLabel")
+retry_button = NodePath("CanvasLayer/GameOverButtons/Retry")
+quit_button = NodePath("CanvasLayer/GameOverButtons/Quit")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=484467060]
 
@@ -136,12 +138,12 @@ grow_vertical = 0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 alignment = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/GameOverButtons" unique_id=141873647]
+[node name="Retry" type="Button" parent="CanvasLayer/GameOverButtons" unique_id=141873647]
 layout_mode = 2
 localize_numeral_system = false
 text = "Retry"
 
-[node name="Button2" type="Button" parent="CanvasLayer/GameOverButtons" unique_id=480441215]
+[node name="Quit" type="Button" parent="CanvasLayer/GameOverButtons" unique_id=480441215]
 layout_mode = 2
 text = "Quit"
 
