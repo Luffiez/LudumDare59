@@ -1,6 +1,6 @@
 extends Control
 
-@export var gameScene : PackedScene
+@export_file("*.tscn") var game_scene_path: String
 @export var playbutton : Button
 @export var quitbutton : Button
 @export var clickSfx : AudioStream
@@ -16,14 +16,9 @@ func _ready() -> void:
 	quitbutton.pressed.connect(OnQuit)
 	playbutton.pressed.connect(OnPlay)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func OnQuit():
 	SceneManager.quit_game()
 	
 func OnPlay():
 	AudioManager.play_sfx(clickSfx)
-	SceneManager.change_scene(gameScene.get_path())
+	SceneManager.change_scene(game_scene_path)

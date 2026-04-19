@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://lbtsay5r0ff" path="res://sprites/mouse_left_outline.png" id="1_drr47"]
 [ext_resource type="Texture2D" uid="uid://cm7112hlkknju" path="res://sprites/mouse_right_outline.png" id="1_rqqra"]
 [ext_resource type="Texture2D" uid="uid://b7lay3dxdnwc1" path="res://sprites/pirateBoatIcon.png" id="4_6khg8"]
+[ext_resource type="Script" uid="uid://b5nwlboratql3" path="res://Scenes/pause_menu.gd" id="5_rgkbf"]
 
 [node name="GameUI" type="Control" unique_id=1060063773 node_paths=PackedStringArray("screen_center", "game_over_text", "objective_text", "buttons_end", "buttons_end2", "scoreButton", "inputSpeedButton", "inputFocusButton", "game_over_buttons", "quit_button", "retry_button")]
 layout_mode = 3
@@ -148,6 +149,41 @@ localize_numeral_system = false
 text = "Retry"
 
 [node name="Quit" type="Button" parent="CanvasLayer/GameOverButtons" unique_id=480441215]
+layout_mode = 2
+text = "Quit"
+
+[node name="Pause Menu" type="VBoxContainer" parent="CanvasLayer" unique_id=1046735351 node_paths=PackedStringArray("button_target", "resume_button", "home_button", "quit_button")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = 348.0
+offset_right = 19.28003
+offset_bottom = 449.70862
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+alignment = 1
+script = ExtResource("5_rgkbf")
+button_target = NodePath("../Buttons_end2")
+resume_button = NodePath("Resume")
+home_button = NodePath("Home")
+quit_button = NodePath("Quit")
+home_scene_path = "uid://cg0wf5khe7k2b"
+
+[node name="Resume" type="Button" parent="CanvasLayer/Pause Menu" unique_id=91850421]
+layout_mode = 2
+localize_numeral_system = false
+text = "Resume"
+
+[node name="Home" type="Button" parent="CanvasLayer/Pause Menu" unique_id=1593216739]
+layout_mode = 2
+localize_numeral_system = false
+text = "Home"
+
+[node name="Quit" type="Button" parent="CanvasLayer/Pause Menu" unique_id=537332614]
 layout_mode = 2
 text = "Quit"
 
