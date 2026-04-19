@@ -38,6 +38,10 @@ func _draw():
 				_draw_cone_mask(pos, r.size.length, r.size.angle, r.node.global_rotation, r.size.get("start_radius", 0.0))
 
 func _draw_cone_mask(pos: Vector2, length: float, cone_angle: float, direction: float, start_radius: float = 0.0):
+	 # Shrink angle when facing up/down (sin = 1), keep full when facing left/right (sin = 0)
+	var vertical_factor = abs(sin(direction))
+	var adjusted_angle = lerp(cone_angle, cone_angle * 0.7, vertical_factor)
+	
 	var scaled_length = _scale_to_mask(length)
 	var scaled_start = _scale_to_mask(start_radius)
 	var steps = 24
@@ -45,12 +49,12 @@ func _draw_cone_mask(pos: Vector2, length: float, cone_angle: float, direction: 
 
 	# Start arc (inner edge)
 	for i in range(steps + 1):
-		var angle = direction - cone_angle / 2.0 + (cone_angle / steps) * i
+		var angle = direction - adjusted_angle / 2.0 + (adjusted_angle / steps) * i
 		points.append(pos + Vector2(cos(angle), sin(angle)) * scaled_start)
 
 	# End arc (outer edge) — reversed so polygon winds correctly
 	for i in range(steps, -1, -1):
-		var angle = direction - cone_angle / 2.0 + (cone_angle / steps) * i
+		var angle = direction - adjusted_angle / 2.0 + (adjusted_angle / steps) * i
 		points.append(pos + Vector2(cos(angle), sin(angle)) * scaled_length)
 	draw_circle(pos, 5, Color(1, 1, 1))
 	draw_polygon(points, [Color(1, 1, 1)])

@@ -47,6 +47,7 @@ script = ExtResource("4_lf2i3")
 cone_length = 750.0
 rotation_speed = -1.0
 rotation_speed_boosted = -3.0
+gameover_decrease_speed = 0.65
 
 [node name="Area2D" type="Area2D" parent="." unique_id=206081430]
 visible = false
