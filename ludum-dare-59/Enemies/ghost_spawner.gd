@@ -20,6 +20,7 @@ func _ready() -> void:
 	spawn_time = start_spawn_time
 	spawn_timer.timeout.emit()
 	reduce_spawn_time_timer
+	spawn_enemy()
 
 func reduce_spawn_time () -> void:
 	spawn_time -= spawn_time_reducement

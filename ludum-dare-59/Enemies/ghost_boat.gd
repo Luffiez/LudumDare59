@@ -49,8 +49,9 @@ func set_target(t:Lighthouse) ->void:
 	target = t 
 	print(target)
 	light_house_direction = (t.global_position - global_position).normalized()
-	flipped_sprite =  target.global_position.x < global_position.x
+	flipped_sprite =  target.global_position.x > global_position.x
 	animatedSprite.flip_h = flipped_sprite
+	animatedSprite.play("default")
 	
 
 func on_set_back_normal_speed() -> void :

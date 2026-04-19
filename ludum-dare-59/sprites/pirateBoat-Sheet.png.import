@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://da8sefxf4nbpb"
-path="res://.godot/imported/splash.png-0000c23bff8738643f1c5c5c8de9e0a2.ctex"
+uid="uid://d8ccp6mh3s2u"
+path="res://.godot/imported/pirateBoat-Sheet.png-fb7e1ca26677bb1084ec6d7ef8dc3727.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/splash.png"
-dest_files=["res://.godot/imported/splash.png-0000c23bff8738643f1c5c5c8de9e0a2.ctex"]
+source_file="res://sprites/pirateBoat-Sheet.png"
+dest_files=["res://.godot/imported/pirateBoat-Sheet.png-fb7e1ca26677bb1084ec6d7ef8dc3727.ctex"]
 
 [params]
 
