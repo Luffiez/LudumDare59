@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://c341fvmfppxhk" path="res://Scripts/Light.gd" id="4_lf2i3"]
 [ext_resource type="AudioStream" uid="uid://cv52cepy1a6p3" path="res://Sound/Whoosh 3_2.wav" id="5_bdxl1"]
 [ext_resource type="AudioStream" uid="uid://dk8eouidkpcek" path="res://Sound/Whoosh 3_1.wav" id="6_m2fn1"]
-[ext_resource type="AudioStream" uid="uid://d3t0w17nhor61" path="res://Sound/Drop 2_1.wav" id="7_m2fn1"]
+[ext_resource type="AudioStream" uid="uid://cl5g7k5xnlqgd" path="res://Sound/AC_Disappointment_01.wav" id="7_m2fn1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wknik"]
 atlas = ExtResource("2_lf2i3")

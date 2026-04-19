@@ -13,6 +13,7 @@ const  lightHouseNodeName := "Lighthouse"
 @export var flee_movement_speed: float
 @export var slow_movement_speed:float
 @export var slow_movement_time : float
+@export var run_sfx : AudioStream
 
 var light_house_direction := Vector2(0,0)
 var flee := false
@@ -84,6 +85,7 @@ func on_light_overlapp(damage : float) -> void:
 		animatedSprite.flip_h = !flipped_sprite
 		movement_speed = flee_movement_speed
 		slow_movement_timer.stop()
+		AudioManager.play_sfx(run_sfx, -5)
 	else :
 		movement_speed = slow_movement_speed
 		if	!slow_movement_timer.is_stopped() :

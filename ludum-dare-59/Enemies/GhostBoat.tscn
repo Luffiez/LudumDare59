@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://44t4nfcih0co" path="res://Enemies/ghost_boat.gd" id="1_rk8w6"]
 [ext_resource type="Texture2D" uid="uid://21csiticsglw" path="res://sprites/exclamation.png" id="2_o60py"]
+[ext_resource type="AudioStream" uid="uid://q86yguqhlf8a" path="res://Sound/AC_Sweeping_Slide_01v2.wav" id="2_r6558"]
 [ext_resource type="Texture2D" uid="uid://d8ccp6mh3s2u" path="res://sprites/pirateBoat-Sheet.png" id="3_o60py"]
 [ext_resource type="Script" uid="uid://br5igjnsngkir" path="res://Scripts/BoatDarkness.gd" id="3_y7jq1"]
 
@@ -50,6 +51,7 @@ normal_movement_speed = 25.0
 flee_movement_speed = 70.0
 slow_movement_speed = 1.0
 slow_movement_time = 1.0
+run_sfx = ExtResource("2_r6558")
 
 [node name="Visible_Indicator" type="Sprite2D" parent="." unique_id=15660540]
 visible = false
