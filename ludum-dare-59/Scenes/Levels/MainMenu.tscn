@@ -81,7 +81,7 @@ texture = ExtResource("1_koonp")
 game_scene_path = "uid://ce1i6fqv4rw1j"
 clickSfx = ExtResource("5_cwjnk")
 bgm = ExtResource("6_82l7r")
-ambitience = ExtResource("5_0t1wx")
+ambience = ExtResource("5_0t1wx")
 music_strength = -20.0
 
 [node name="Birds" type="Node2D" parent="." unique_id=524822240 node_paths=PackedStringArray("pathFollow")]

@@ -86,7 +86,8 @@ clip_contents = false
 custom_minimum_size = Vector2(700, 10)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 20
-text = "LuduDare59"
+bbcode_enabled = true
+text = "[b][color=#F54927]Ludum[/color] [color=#ff6600]Dare[/color] [color=#cecc40]#59[/color] "
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -107,7 +108,7 @@ custom_minimum_size = Vector2(500, 30)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 15
 bbcode_enabled = true
-text = "Created by: [url=https://github.com/Luffiez]Erik Rodriguez[/url] &[url=https://github.com/IsBebs] Björn Bengtsson[/url]"
+text = "Created by: [url=https://erikrodriguez.se]Erik Rodriguez[/url] &[url=https://github.com/IsBebs] Björn Bengtsson[/url]"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("3_j5qoq")
