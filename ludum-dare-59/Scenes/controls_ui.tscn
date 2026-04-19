@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b1y6gk2j8wa61" path="res://Scenes/game_ui.gd" id="1_6khg8"]
 [ext_resource type="Texture2D" uid="uid://lbtsay5r0ff" path="res://sprites/mouse_left_outline.png" id="1_drr47"]
 [ext_resource type="Texture2D" uid="uid://cm7112hlkknju" path="res://sprites/mouse_right_outline.png" id="1_rqqra"]
-[ext_resource type="Texture2D" uid="uid://1et03mbf5sax" path="res://sprites/boat.png" id="3_d7oy3"]
+[ext_resource type="Texture2D" uid="uid://b7lay3dxdnwc1" path="res://sprites/pirateBoatIcon.png" id="4_6khg8"]
 
 [node name="GameUI" type="Control" unique_id=1060063773 node_paths=PackedStringArray("screen_center", "game_over_text", "objective_text", "buttons_end", "buttons_end2", "scoreButton", "inputSpeedButton", "inputFocusButton", "game_over_buttons", "quit_button", "retry_button")]
 layout_mode = 3
@@ -79,7 +79,7 @@ offset_bottom = 40.0
 grow_horizontal = 0
 disabled = true
 text = "44 "
-icon = ExtResource("3_d7oy3")
+icon = ExtResource("4_6khg8")
 flat = true
 alignment = 2
 icon_alignment = 2
