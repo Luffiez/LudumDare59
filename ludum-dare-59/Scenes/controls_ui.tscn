@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cm7112hlkknju" path="res://sprites/mouse_right_outline.png" id="1_rqqra"]
 [ext_resource type="Texture2D" uid="uid://1et03mbf5sax" path="res://sprites/boat.png" id="3_d7oy3"]
 
-[node name="GameUI" type="Control" unique_id=1060063773 node_paths=PackedStringArray("screen_center", "game_over_text", "scoreButton")]
+[node name="GameUI" type="Control" unique_id=1060063773 node_paths=PackedStringArray("screen_center", "game_over_text", "scoreButton", "game_over_buttons", "buttons_end")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,6 +16,8 @@ script = ExtResource("1_6khg8")
 screen_center = NodePath("CanvasLayer/CenterPosition")
 game_over_text = NodePath("CanvasLayer/GameOverText")
 scoreButton = NodePath("CanvasLayer/Score")
+game_over_buttons = NodePath("CanvasLayer/GameOverButtons")
+buttons_end = NodePath("CanvasLayer/RichTextLabel")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=484467060]
 
@@ -117,4 +119,42 @@ offset_top = -122.0
 offset_bottom = -122.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="GameOverButtons" type="VBoxContainer" parent="CanvasLayer" unique_id=210766358]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.140015
+offset_top = 244.401
+offset_right = 45.140015
+offset_bottom = 346.10962
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/GameOverButtons" unique_id=141873647]
+layout_mode = 2
+localize_numeral_system = false
+text = "Retry"
+
+[node name="Button2" type="Button" parent="CanvasLayer/GameOverButtons" unique_id=480441215]
+layout_mode = 2
+text = "Quit"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=1555182682]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -280.0
+offset_right = 20.0
+offset_bottom = -239.99939
+grow_horizontal = 2
+grow_vertical = 0
 pivot_offset_ratio = Vector2(0.5, 0.5)
