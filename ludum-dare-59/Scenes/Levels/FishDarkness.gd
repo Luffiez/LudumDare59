@@ -1,4 +1,4 @@
-extends Node2D
+extends AnimatedSprite2D
 
 var _mat: ShaderMaterial
 
@@ -6,7 +6,7 @@ func _ready():
 	await RenderingServer.frame_post_draw
 
 	_mat = ShaderMaterial.new()
-	_mat.shader = load("res://Shaders/hidden_object.gdshader")
+	_mat.shader = load("res://Shaders/Water.gdshader")
 	material = _mat
 
 func _process(_delta):

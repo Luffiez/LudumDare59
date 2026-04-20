@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dc85d16ja82r8"
-path="res://.godot/imported/Lighthouse-sheet.png-2829d007c9a6ade72e8eb8297cbf74a2.ctex"
+uid="uid://b2jvoxbn3djof"
+path="res://.godot/imported/fish-sheet.png-c7226f4bf70046ccef05bfdb1c9ef492.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Lighthouse-sheet.png"
-dest_files=["res://.godot/imported/Lighthouse-sheet.png-2829d007c9a6ade72e8eb8297cbf74a2.ctex"]
+source_file="res://sprites/fish-sheet.png"
+dest_files=["res://.godot/imported/fish-sheet.png-c7226f4bf70046ccef05bfdb1c9ef492.ctex"]
 
 [params]
 

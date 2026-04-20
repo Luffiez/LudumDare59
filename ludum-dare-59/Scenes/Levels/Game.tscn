@@ -11,12 +11,119 @@
 [ext_resource type="Script" uid="uid://ej1jhpjah1iy" path="res://Scenes/Levels/SkyObject.gd" id="9_3uwfa"]
 [ext_resource type="Texture2D" uid="uid://cbo4jbpb54ion" path="res://sprites/shark.png" id="10_ulx5c"]
 [ext_resource type="Script" uid="uid://tu6w7weketfy" path="res://Scenes/Levels/SharkDarkness.gd" id="11_ulx5c"]
+[ext_resource type="Texture2D" uid="uid://b2jvoxbn3djof" path="res://sprites/fish-sheet.png" id="12_45v51"]
+[ext_resource type="Script" uid="uid://b3uyoo8is3rgr" path="res://Scenes/Levels/fish.gd" id="13_02ggq"]
+[ext_resource type="Script" uid="uid://bturpypbo7xi7" path="res://Scenes/Levels/FishDarkness.gd" id="14_02ggq"]
 
 [sub_resource type="Curve2D" id="Curve2D_j8ai1"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -3000, 0, 0, 0, 0, 0, 3000, 0)
 }
 point_count = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eangq"]
+atlas = ExtResource("12_45v51")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oj1cf"]
+atlas = ExtResource("12_45v51")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uy4ac"]
+atlas = ExtResource("12_45v51")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbiom"]
+atlas = ExtResource("12_45v51")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imk1o"]
+atlas = ExtResource("12_45v51")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6duk"]
+atlas = ExtResource("12_45v51")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pf266"]
+atlas = ExtResource("12_45v51")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58pyq"]
+atlas = ExtResource("12_45v51")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nda3m"]
+atlas = ExtResource("12_45v51")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6t7f"]
+atlas = ExtResource("12_45v51")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxf4f"]
+atlas = ExtResource("12_45v51")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bu26"]
+atlas = ExtResource("12_45v51")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58r04"]
+atlas = ExtResource("12_45v51")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t03m5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eangq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oj1cf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uy4ac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbiom")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imk1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6duk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pf266")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58pyq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nda3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6t7f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxf4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bu26")
+}],
+"loop": false,
+"name": &"active",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58r04")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="Game" type="Node2D" unique_id=1961527218]
 
@@ -89,3 +196,198 @@ progress = 1999.9996
 scale = Vector2(-2, 2)
 texture = ExtResource("10_ulx5c")
 script = ExtResource("11_ulx5c")
+
+[node name="Fish" type="Node2D" parent="." unique_id=930175939 node_paths=PackedStringArray("sprite")]
+position = Vector2(419, 294)
+script = ExtResource("13_02ggq")
+sprite = NodePath("Fish_AnimatedSprite2D")
+min_timer = 5.0
+max_timer = 60.0
+
+[node name="Fish_AnimatedSprite2D" type="AnimatedSprite2D" parent="Fish" unique_id=1307734528]
+sprite_frames = SubResource("SpriteFrames_t03m5")
+animation = &"active"
+autoplay = "idle"
+frame = 11
+frame_progress = 1.0
+script = ExtResource("14_02ggq")
+
+[node name="Fish11" type="Node2D" parent="." unique_id=673440177 node_paths=PackedStringArray("sprite")]
+position = Vector2(449, 322)
+script = ExtResource("13_02ggq")
+sprite = NodePath("Fish_AnimatedSprite2D")
+min_timer = 5.0
+max_timer = 60.0
+
+[node name="Fish_AnimatedSprite2D" type="AnimatedSprite2D" parent="Fish11" unique_id=1393419824]
+sprite_frames = SubResource("SpriteFrames_t03m5")
+animation = &"active"
+autoplay = "idle"
+frame = 11
+frame_progress = 1.0
+script = ExtResource("14_02ggq")
+
+[node name="Fish12" type="Node2D" parent="." unique_id=1802539041 node_paths=PackedStringArray("sprite")]
+position = Vector2(519, 271)
+script = ExtResource("13_02ggq")
+sprite = NodePath("Fish_AnimatedSprite2D")
+min_timer = 5.0
+max_timer = 60.0
+
+[node name="Fish_AnimatedSprite2D" type="AnimatedSprite2D" parent="Fish12" unique_id=558208424]
+sprite_frames = SubResource("SpriteFrames_t03m5")
+animation = &"active"
+autoplay = "idle"
+frame = 11
+frame_progress = 1.0
+script = ExtResource("14_02ggq")
+
+[node name="Fish13" type="Node2D" parent="." unique_id=1794822768 node_paths=PackedStringArray("sprite")]
+position = Vector2(527, 329)
+script = ExtResource("13_02ggq")
+sprite = NodePath("Fish_AnimatedSprite2D")
+min_timer = 5.0
+max_timer = 60.0
+
+[node name="Fish_AnimatedSprite2D" type="AnimatedSprite2D" parent="Fish13" unique_id=276931512]
+sprite_frames = SubResource("SpriteFrames_t03m5")
+animation = &"active"
+autoplay = "idle"
+frame = 11
+frame_progress = 1.0
+script = ExtResource("14_02ggq")
+
+[node name="Fish2" type="Node2D" parent="." unique_id=2131219102 node_paths=PackedStringArray("sprite")]
+position = Vector2(608, 358)
+script = ExtResource("13_02ggq")
+sprite = NodePath("Fish_AnimatedSprite2D")
+min_timer = 5.0
+max_timer = 60.0
+
+[node name="Fish_AnimatedSprite2D" type="AnimatedSprite2D" parent="Fish2" unique_id=1779336195]
+sprite_frames = SubResource("SpriteFrames_t03m5")
+animation = &"active"
+autoplay = "idle"
+frame = 11
+frame_progress = 1.0
+script = ExtResource("14_02ggq")
+
+[node name="Fish3" type="Node2D" parent="." unique_id=2075937025 node_paths=PackedStringArray("sprite")]
+position = Vector2(305, 474)
+script = ExtResource("13_02ggq")
+sprite = NodePath("Fish_AnimatedSprite2D")
+min_timer = 5.0
+max_timer = 60.0
+
+[node name="Fish_AnimatedSprite2D" type="AnimatedSprite2D" parent="Fish3" unique_id=697159557]
+sprite_frames = SubResource("SpriteFrames_t03m5")
+animation = &"active"
+autoplay = "idle"
+frame = 11
+frame_progress = 1.0
+script = ExtResource("14_02ggq")
+
+[node name="Fish4" type="Node2D" parent="." unique_id=1479513000 node_paths=PackedStringArray("sprite")]
+position = Vector2(121, 200)
+script = ExtResource("13_02ggq")
+sprite = NodePath("Fish_AnimatedSprite2D")
+min_timer = 5.0
+max_timer = 60.0
+
+[node name="Fish_AnimatedSprite2D" type="AnimatedSprite2D" parent="Fish4" unique_id=1360047480]
+sprite_frames = SubResource("SpriteFrames_t03m5")
+animation = &"active"
+autoplay = "idle"
+frame = 11
+frame_progress = 1.0
+script = ExtResource("14_02ggq")
+
+[node name="Fish5" type="Node2D" parent="." unique_id=1037130587 node_paths=PackedStringArray("sprite")]
+position = Vector2(288, 66)
+script = ExtResource("13_02ggq")
+sprite = NodePath("Fish_AnimatedSprite2D")
+min_timer = 5.0
+max_timer = 60.0
+
+[node name="Fish_AnimatedSprite2D" type="AnimatedSprite2D" parent="Fish5" unique_id=1293645615]
+sprite_frames = SubResource("SpriteFrames_t03m5")
+animation = &"active"
+autoplay = "idle"
+frame = 11
+frame_progress = 1.0
+script = ExtResource("14_02ggq")
+
+[node name="Fish6" type="Node2D" parent="." unique_id=208482950 node_paths=PackedStringArray("sprite")]
+position = Vector2(846, 143)
+script = ExtResource("13_02ggq")
+sprite = NodePath("Fish_AnimatedSprite2D")
+min_timer = 5.0
+max_timer = 60.0
+
+[node name="Fish_AnimatedSprite2D" type="AnimatedSprite2D" parent="Fish6" unique_id=76542251]
+sprite_frames = SubResource("SpriteFrames_t03m5")
+animation = &"active"
+autoplay = "idle"
+frame = 11
+frame_progress = 1.0
+script = ExtResource("14_02ggq")
+
+[node name="Fish7" type="Node2D" parent="." unique_id=371524054 node_paths=PackedStringArray("sprite")]
+position = Vector2(502, 123)
+script = ExtResource("13_02ggq")
+sprite = NodePath("Fish_AnimatedSprite2D")
+min_timer = 5.0
+max_timer = 60.0
+
+[node name="Fish_AnimatedSprite2D" type="AnimatedSprite2D" parent="Fish7" unique_id=731324421]
+sprite_frames = SubResource("SpriteFrames_t03m5")
+animation = &"active"
+autoplay = "idle"
+frame = 11
+frame_progress = 1.0
+script = ExtResource("14_02ggq")
+
+[node name="Fish8" type="Node2D" parent="." unique_id=2126648422 node_paths=PackedStringArray("sprite")]
+position = Vector2(638, 77)
+script = ExtResource("13_02ggq")
+sprite = NodePath("Fish_AnimatedSprite2D")
+min_timer = 5.0
+max_timer = 60.0
+
+[node name="Fish_AnimatedSprite2D" type="AnimatedSprite2D" parent="Fish8" unique_id=1596426812]
+sprite_frames = SubResource("SpriteFrames_t03m5")
+animation = &"active"
+autoplay = "idle"
+frame = 11
+frame_progress = 1.0
+script = ExtResource("14_02ggq")
+
+[node name="Fish9" type="Node2D" parent="." unique_id=1535238174 node_paths=PackedStringArray("sprite")]
+position = Vector2(591, 218)
+script = ExtResource("13_02ggq")
+sprite = NodePath("Fish_AnimatedSprite2D")
+min_timer = 5.0
+max_timer = 60.0
+
+[node name="Fish_AnimatedSprite2D" type="AnimatedSprite2D" parent="Fish9" unique_id=426734777]
+sprite_frames = SubResource("SpriteFrames_t03m5")
+animation = &"active"
+autoplay = "idle"
+frame = 11
+frame_progress = 1.0
+script = ExtResource("14_02ggq")
+
+[node name="Fish10" type="Node2D" parent="." unique_id=1422958225 node_paths=PackedStringArray("sprite")]
+position = Vector2(85, 379)
+script = ExtResource("13_02ggq")
+sprite = NodePath("Fish_AnimatedSprite2D")
+min_timer = 5.0
+max_timer = 60.0
+
+[node name="Fish_AnimatedSprite2D" type="AnimatedSprite2D" parent="Fish10" unique_id=987821335]
+sprite_frames = SubResource("SpriteFrames_t03m5")
+animation = &"active"
+autoplay = "idle"
+frame = 11
+frame_progress = 1.0
+script = ExtResource("14_02ggq")
