@@ -4,6 +4,7 @@ class_name  GhostSpawner
 
 @export var spawn_line : SpawnLine
 @export var ghost_boat_scene : PackedScene
+@export var small_ghost_boat_scene : PackedScene
 @export var spawn_timer : Timer
 @export var reduce_spawn_time_timer : Timer
 @export var start_spawn_time : float
@@ -39,7 +40,8 @@ func spawn_enemy() ->  void :
 	var random_float := randf_range(0,1)
 	spawn_line.set_progress_ratio(random_float)
 	var spawn_position =  spawn_line.get_spawn_global_position()
-	var new_enemy := ghost_boat_scene.instantiate() as GhostBoat
+	var boat = get_boat()
+	var new_enemy := boat.instantiate() as GhostBoat
 	add_child(new_enemy)
 	new_enemy.ghost_boat_died.connect(game_ui.gain_score)
 	target.on_game_over.connect(new_enemy.on_game_over)
@@ -49,3 +51,9 @@ func spawn_enemy() ->  void :
 	if spawn_time < min_spawn_time:
 		spawn_time = min_spawn_time
 	spawn_timer.start(spawn_time)
+
+func get_boat() -> PackedScene:
+	if randf() >= 0.5:
+		return small_ghost_boat_scene
+	else:
+		return ghost_boat_scene

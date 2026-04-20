@@ -2,10 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dpqtg7h8ktnvt" path="res://Enemies/ghost_spawner.gd" id="1_kohk5"]
 [ext_resource type="PackedScene" uid="uid://doq1yyd35wqeq" path="res://Enemies/GhostBoat.tscn" id="2_j5frh"]
+[ext_resource type="PackedScene" uid="uid://rsgb37smcnb1" path="res://Enemies/GhostBoat_small.tscn" id="3_ko4ld"]
 
 [node name="GhostSpawner" type="Node2D" unique_id=1644450088 node_paths=PackedStringArray("spawn_timer", "reduce_spawn_time_timer")]
 script = ExtResource("1_kohk5")
 ghost_boat_scene = ExtResource("2_j5frh")
+small_ghost_boat_scene = ExtResource("3_ko4ld")
 spawn_timer = NodePath("GhostSpawnTimer")
 reduce_spawn_time_timer = NodePath("ReduceGhostSpawnTimeTimer")
 start_spawn_time = 10.0

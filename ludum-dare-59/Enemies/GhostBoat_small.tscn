@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://rsgb37smcnb1"]
+
+[ext_resource type="Script" uid="uid://44t4nfcih0co" path="res://Enemies/ghost_boat.gd" id="1_tiliv"]
+[ext_resource type="AudioStream" uid="uid://q86yguqhlf8a" path="res://Sound/AC_Sweeping_Slide_01v2.wav" id="2_j7aw7"]
+[ext_resource type="AudioStream" uid="uid://k00iuupgrvj2" path="res://Sound/Pirate/Flee/GoARigSomewhereElse.wav" id="3_jdw1a"]
+[ext_resource type="AudioStream" uid="uid://c2aja45a6o61u" path="res://Sound/Pirate/Flee/HoinSwerl.wav" id="4_nw5jm"]
+[ext_resource type="AudioStream" uid="uid://blxkfmmoy13i0" path="res://Sound/Pirate/Flee/ScallyWag.wav" id="5_qdb5v"]
+[ext_resource type="AudioStream" uid="uid://we4udj6w4wtj" path="res://Sound/Pirate/Flee/ShiverMeTimbers.wav" id="6_y1nli"]
+[ext_resource type="AudioStream" uid="uid://q7h5m4t5qjk7" path="res://Sound/Pirate/Flee/SonOfABiscuitEater.wav" id="7_823di"]
+[ext_resource type="AudioStream" uid="uid://bec5dwjty26dv" path="res://Sound/Pirate/Flee/abandonShip.wav" id="8_1wptj"]
+[ext_resource type="AudioStream" uid="uid://bs4qjuf247ark" path="res://Sound/Pirate/GameOver/CanYouSwim.wav" id="9_5hoc8"]
+[ext_resource type="AudioStream" uid="uid://ucexydn3maer" path="res://Sound/Pirate/GameOver/CareToJoinOurCrew.wav" id="10_3vmwr"]
+[ext_resource type="AudioStream" uid="uid://jd0qc5f0vveq" path="res://Sound/Pirate/GameOver/DoYouNeeToWalkThePlank.wav" id="11_opmld"]
+[ext_resource type="AudioStream" uid="uid://8jmj01sad6to" path="res://Sound/Pirate/GameOver/IamAfraidYouDoNotHaveAChoice.wav" id="12_ap5np"]
+[ext_resource type="AudioStream" uid="uid://cdq4e5sdo45gu" path="res://Sound/Pirate/GameOver/TimeForSongAndDance.wav" id="13_e3f5v"]
+[ext_resource type="AudioStream" uid="uid://c13f48kk0mbve" path="res://Sound/Pirate/GameOver/TimeToWalkThePlank.wav" id="14_lpnt7"]
+[ext_resource type="AudioStream" uid="uid://cp1p3dyopxaim" path="res://Sound/Pirate/GameOver/TimeToWisitDavidJonesLocker.wav" id="15_ajxvj"]
+[ext_resource type="AudioStream" uid="uid://13ir3ld7dqe1" path="res://Sound/Pirate/Spawn/Arrg.wav" id="16_sn5rs"]
+[ext_resource type="AudioStream" uid="uid://brp4lfifidoil" path="res://Sound/Pirate/Spawn/ArrgMeMatey.wav" id="17_bmok5"]
+[ext_resource type="AudioStream" uid="uid://ci4rjocuux1gv" path="res://Sound/Pirate/Spawn/DeadManTellNoTales.wav" id="18_ju01k"]
+[ext_resource type="AudioStream" uid="uid://bef1rhjokxww3" path="res://Sound/Pirate/Spawn/LandAhoo.wav" id="19_s8jr8"]
+[ext_resource type="AudioStream" uid="uid://bq1a6c6ab1c2p" path="res://Sound/Pirate/Spawn/Laugh.wav" id="20_yhfsh"]
+[ext_resource type="Texture2D" uid="uid://21csiticsglw" path="res://sprites/exclamation.png" id="21_vamh3"]
+[ext_resource type="Texture2D" uid="uid://cxdbjcwlk1a0" path="res://sprites/small_pirateBoat-sheet.png" id="22_tiliv"]
+[ext_resource type="Script" uid="uid://br5igjnsngkir" path="res://Scripts/BoatDarkness.gd" id="23_3yn05"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7aw7"]
+atlas = ExtResource("22_tiliv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdw1a"]
+atlas = ExtResource("22_tiliv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nw5jm"]
+atlas = ExtResource("22_tiliv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_obdi0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7aw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdw1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nw5jm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y7jq1"]
+radius = 14.0
+
+[node name="GhostBoat_Small" type="Node2D" unique_id=1054152210 node_paths=PackedStringArray("collider", "animatedSprite", "indicator", "visibleNotifier", "slow_movement_timer")]
+y_sort_enabled = true
+script = ExtResource("1_tiliv")
+collider = NodePath("AnimatedSprite2D/Area2D")
+animatedSprite = NodePath("AnimatedSprite2D")
+indicator = NodePath("Visible_Indicator")
+visibleNotifier = NodePath("VisibleOnScreenNotifier2D")
+slow_movement_timer = NodePath("SpawnTimer")
+life = 25.0
+normal_movement_speed = 35.0
+outside_screen_speed = 1000.0
+flee_movement_speed = 70.0
+slow_movement_speed = 1.0
+slow_movement_time = 1.0
+run_sfx = ExtResource("2_j7aw7")
+flee_sfx = Array[AudioStream]([ExtResource("3_jdw1a"), ExtResource("4_nw5jm"), ExtResource("5_qdb5v"), ExtResource("6_y1nli"), ExtResource("7_823di"), ExtResource("8_1wptj")])
+game_over_sfx = Array[AudioStream]([ExtResource("9_5hoc8"), ExtResource("10_3vmwr"), ExtResource("11_opmld"), ExtResource("12_ap5np"), ExtResource("13_e3f5v"), ExtResource("14_lpnt7"), ExtResource("15_ajxvj")])
+spawn_sfx = Array[AudioStream]([ExtResource("16_sn5rs"), ExtResource("17_bmok5"), ExtResource("18_ju01k"), ExtResource("19_s8jr8"), ExtResource("20_yhfsh")])
+min_pitch = 1.5
+max_pitch = 2.0
+
+[node name="Visible_Indicator" type="Sprite2D" parent="." unique_id=15660540]
+visible = false
+position = Vector2(0, -26)
+texture = ExtResource("21_vamh3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=558220533]
+sprite_frames = SubResource("SpriteFrames_obdi0")
+autoplay = "default"
+frame_progress = 0.19704577
+script = ExtResource("23_3yn05")
+
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D" unique_id=1924590567]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D" unique_id=1834132774]
+shape = SubResource("CircleShape2D_y7jq1")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1045026560]
+rect = Rect2(-16, -15, 31.839996, 29.89)
+show_rect = false
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=2115555456]
+
+[node name="ReduceSpawnTimeTimer" type="Timer" parent="." unique_id=158255920]
