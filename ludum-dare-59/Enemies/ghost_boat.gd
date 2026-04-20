@@ -10,6 +10,7 @@ const  lightHouseNodeName := "Lighthouse"
 @export var slow_movement_timer : Timer 
 @export var life : float
 @export var normal_movement_speed: float
+@export var outside_screen_speed: float
 @export var flee_movement_speed: float
 @export var slow_movement_speed:float
 @export var slow_movement_time : float
@@ -48,7 +49,7 @@ func _ready() -> void:
 	visibleNotifier.screen_exited.connect(screen_exited)
 	visibleNotifier.screen_entered.connect(screen_enterd)
 	slow_movement_timer.timeout.connect(on_set_back_normal_speed)
-	movement_speed = normal_movement_speed
+	movement_speed = outside_screen_speed
 	
 func set_target(t:Lighthouse) ->void:
 	target = t 
@@ -66,6 +67,7 @@ func on_set_back_normal_speed() -> void :
 
 func screen_enterd()-> void :
 	have_enterd_screen_once = true
+	movement_speed = normal_movement_speed
 
 func screen_exited()-> void :
 	if  have_enterd_screen_once:
@@ -80,7 +82,8 @@ func area_entered (collision:Area2D) -> void:
 			light_house.on_game_over.emit() 
 			if game_over_sfx != null and !game_over_sfx.is_empty():
 				var audioStream := game_over_sfx.pick_random() as AudioStream
-				AudioManager.play_sfx(audioStream,-5)
+				var random_pitch := randf_range(min_pitch,max_pitch)
+				AudioManager.play_sfx(audioStream,-5,random_pitch)
 		set_physics_process(false)
  
 func on_light_overlapp(damage : float) -> void:

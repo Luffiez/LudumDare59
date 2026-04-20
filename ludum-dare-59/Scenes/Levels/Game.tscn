@@ -22,6 +22,8 @@ light_house = NodePath("../Lighthouse")
 
 [node name="GhostSpawner" parent="." unique_id=1644450088 node_paths=PackedStringArray("spawn_line", "target", "game_ui") instance=ExtResource("4_r3we0")]
 spawn_line = NodePath("../GhostSpawnLine")
+reduce_spawn_timer_time = 15.0
+spawn_time_reducement = 1.0
 target = NodePath("../Lighthouse")
 game_ui = NodePath("../ControlsUI")
 

@@ -66,6 +66,7 @@ visibleNotifier = NodePath("VisibleOnScreenNotifier2D")
 slow_movement_timer = NodePath("SpawnTimer")
 life = 50.0
 normal_movement_speed = 25.0
+outside_screen_speed = 1000.0
 flee_movement_speed = 70.0
 slow_movement_speed = 1.0
 slow_movement_time = 1.0
@@ -73,8 +74,8 @@ run_sfx = ExtResource("2_r6558")
 flee_sfx = Array[AudioStream]([ExtResource("3_5uc35"), ExtResource("4_35mf6"), ExtResource("5_oxy5k"), ExtResource("6_js13d"), ExtResource("7_b7wvk"), ExtResource("8_0ytow")])
 game_over_sfx = Array[AudioStream]([ExtResource("9_1xpei"), ExtResource("10_d1luk"), ExtResource("11_ek2g3"), ExtResource("12_jqy3i"), ExtResource("13_xcwcp"), ExtResource("14_fm1fk"), ExtResource("15_674lv")])
 spawn_sfx = Array[AudioStream]([ExtResource("16_xcwcp"), ExtResource("17_fm1fk"), ExtResource("18_674lv"), ExtResource("19_phrpp"), ExtResource("20_2hyio")])
-min_pitch = 0.2
-max_pitch = 0.5
+min_pitch = 1.5
+max_pitch = 2.0
 
 [node name="Visible_Indicator" type="Sprite2D" parent="." unique_id=15660540]
 visible = false

@@ -43,7 +43,7 @@ func play_sfx(stream: AudioStream, volume_db := 0.0, pitch :=1):
 		if not player.playing:
 			player.stream = stream
 			player.volume_db = volume_db
-			player.pitch_scale = pitch
+			#player.pitch_scale = pitch
 			player.play()
 			return
 
