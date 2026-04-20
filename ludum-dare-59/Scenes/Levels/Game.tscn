@@ -243,7 +243,7 @@ frame_progress = 1.0
 script = ExtResource("14_02ggq")
 
 [node name="Fish13" type="Node2D" parent="." unique_id=1794822768 node_paths=PackedStringArray("sprite")]
-position = Vector2(527, 329)
+position = Vector2(527, 328)
 script = ExtResource("13_02ggq")
 sprite = NodePath("Fish_AnimatedSprite2D")
 min_timer = 5.0

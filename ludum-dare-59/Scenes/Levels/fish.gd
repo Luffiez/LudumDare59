@@ -18,7 +18,6 @@ func _process(delta: float) -> void:
 	if(timer <= 0):
 		randomize_time()
 		sprite.play("active")
-		print("FISHY")
-		
+
 func randomize_time() -> void:
 	timer = randf_range(min_timer, max_timer)
