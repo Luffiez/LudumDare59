@@ -8,6 +8,15 @@
 [ext_resource type="Script" uid="uid://c2tj3pye6ntg7" path="res://Scenes/Levels/music_starter.gd" id="6_ymxrj"]
 [ext_resource type="AudioStream" uid="uid://cs00k3n652m2s" path="res://Sound/Music/merchants_and_sea_salt.wav" id="7_scfki"]
 [ext_resource type="AudioStream" uid="uid://wdb5c2pl4v3d" path="res://Sound/freetousesounds - Ocean Sounds & Open Waves Sound Effects! 44 Locations - 08 Bali Seseh Beach Canggu.mp3" id="8_8ghn0"]
+[ext_resource type="Script" uid="uid://ej1jhpjah1iy" path="res://Scenes/Levels/SkyObject.gd" id="9_3uwfa"]
+[ext_resource type="Texture2D" uid="uid://cbo4jbpb54ion" path="res://sprites/shark.png" id="10_ulx5c"]
+[ext_resource type="Script" uid="uid://tu6w7weketfy" path="res://Scenes/Levels/SharkDarkness.gd" id="11_ulx5c"]
+
+[sub_resource type="Curve2D" id="Curve2D_j8ai1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -3000, 0, 0, 0, 0, 0, 3000, 0)
+}
+point_count = 2
 
 [node name="Game" type="Node2D" unique_id=1961527218]
 
@@ -26,6 +35,7 @@ reduce_spawn_timer_time = 15.0
 spawn_time_reducement = 1.0
 target = NodePath("../Lighthouse")
 game_ui = NodePath("../ControlsUI")
+max_random_offset = 0.0
 
 [node name="Node2D" type="Node2D" parent="." unique_id=303890746]
 position = Vector2(481, 445)
@@ -40,3 +50,42 @@ script = ExtResource("6_ymxrj")
 music = ExtResource("7_scfki")
 music_strength = -10.0
 ambietence = ExtResource("8_8ghn0")
+
+[node name="Shark_1" type="Node2D" parent="." unique_id=717912751 node_paths=PackedStringArray("pathFollow")]
+position = Vector2(378, 102)
+script = ExtResource("9_3uwfa")
+pathFollow = NodePath("Path2D/PathFollow2D")
+speed = 0.005
+randomizeStart = true
+
+[node name="Path2D" type="Path2D" parent="Shark_1" unique_id=899117050]
+curve = SubResource("Curve2D_j8ai1")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Shark_1/Path2D" unique_id=234332783]
+position = Vector2(-1000.00104, 0)
+progress = 1999.9996
+
+[node name="Sprite2D" type="Sprite2D" parent="Shark_1/Path2D/PathFollow2D" unique_id=1867910267]
+scale = Vector2(2, 2)
+texture = ExtResource("10_ulx5c")
+script = ExtResource("11_ulx5c")
+
+[node name="Shark_2" type="Node2D" parent="." unique_id=1298388031 node_paths=PackedStringArray("pathFollow")]
+position = Vector2(378, 102)
+script = ExtResource("9_3uwfa")
+pathFollow = NodePath("Path2D/PathFollow2D")
+speed = -0.005
+randomizeStart = true
+
+[node name="Path2D" type="Path2D" parent="Shark_2" unique_id=717467384]
+position = Vector2(0, 335)
+curve = SubResource("Curve2D_j8ai1")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Shark_2/Path2D" unique_id=1007774291]
+position = Vector2(-1000.00104, 0)
+progress = 1999.9996
+
+[node name="Sprite2D" type="Sprite2D" parent="Shark_2/Path2D/PathFollow2D" unique_id=1937903846]
+scale = Vector2(-2, 2)
+texture = ExtResource("10_ulx5c")
+script = ExtResource("11_ulx5c")
