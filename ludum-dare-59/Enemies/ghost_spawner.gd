@@ -47,10 +47,10 @@ func spawn_enemy() ->  void :
 	target.on_game_over.connect(new_enemy.on_game_over)
 	new_enemy.global_position = spawn_position
 	new_enemy.set_target(target)
-	spawn_time += randf_range(-max_random_offset, max_random_offset)
-	if spawn_time < min_spawn_time:
-		spawn_time = min_spawn_time
-	spawn_timer.start(spawn_time)
+	var temp_time := spawn_time + randf_range(-max_random_offset, 0)
+	if temp_time < min_spawn_time:
+		temp_time = min_spawn_time
+	spawn_timer.start(temp_time)
 
 func get_boat() -> PackedScene:
 	if randf() >= 0.5:
