@@ -12,6 +12,7 @@ start_spawn_time = 10.0
 min_spawn_time = 2.0
 reduce_spawn_timer_time = 30.0
 spawn_time_reducement = 0.2
+max_random_offset = 3.0
 
 [node name="GhostSpawnTimer" type="Timer" parent="." unique_id=1495891762]
 

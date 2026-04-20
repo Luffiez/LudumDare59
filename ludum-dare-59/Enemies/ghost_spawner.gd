@@ -12,6 +12,7 @@ class_name  GhostSpawner
 @export var spawn_time_reducement:float
 @export var target : Lighthouse
 @export var game_ui: GameUI
+@export var max_random_offset : float
 var spawn_time : float
 var game_over := false
 
@@ -44,4 +45,7 @@ func spawn_enemy() ->  void :
 	target.on_game_over.connect(new_enemy.on_game_over)
 	new_enemy.global_position = spawn_position
 	new_enemy.set_target(target)
+	spawn_time += randf_range(-max_random_offset, max_random_offset)
+	if spawn_time < min_spawn_time:
+		spawn_time = min_spawn_time
 	spawn_timer.start(spawn_time)
