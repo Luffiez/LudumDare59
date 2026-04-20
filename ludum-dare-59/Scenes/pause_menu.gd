@@ -21,10 +21,8 @@ func _ready() -> void:
 func _process(delta : float):
 	if Input.is_action_just_released("ui_cancel"):
 		on_toggle_pause()
-	
 
 func on_toggle_pause():
-	print("toggle")
 	paused = !paused
 	get_tree().paused = paused
 	var tween := create_tween()
@@ -33,11 +31,10 @@ func on_toggle_pause():
 	if(!paused):
 		target = startPos
 	tween.tween_property(self, "position", target, 0.25)
-	
+
 func on_home():
 	get_tree().paused = false
 	SceneManager.change_scene(home_scene_path)
 
 func on_quit():
 	SceneManager.quit_game()
-	
