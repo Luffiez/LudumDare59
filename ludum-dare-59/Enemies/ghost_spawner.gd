@@ -14,6 +14,7 @@ class_name  GhostSpawner
 @export var target : Lighthouse
 @export var game_ui: GameUI
 @export var max_random_offset : float
+@export var extra_spawn_chance : float = 0.05
 var spawn_time : float
 var game_over := false
 
@@ -21,13 +22,16 @@ func _ready() -> void:
 	spawn_timer.timeout.connect(spawn_enemy)
 	spawn_time = start_spawn_time
 	reduce_spawn_time_timer.timeout.connect(reduce_spawn_time)
+	reduce_spawn_time_timer.start(reduce_spawn_timer_time)
 	target.on_game_over.connect(on_game_over)
 	spawn_enemy()
 
 func reduce_spawn_time () -> void:
 	spawn_time -= spawn_time_reducement
+	print(spawn_time)
 	if  spawn_time < min_spawn_time:
 		spawn_time = min_spawn_time
+		reduce_spawn_time_timer.timeout.disconnect(reduce_spawn_time)
 	else:
 		reduce_spawn_time_timer.start(reduce_spawn_timer_time)
 
@@ -36,7 +40,9 @@ func on_game_over()->void:
 
 func spawn_enemy() ->  void :
 	if  game_over:
+		spawn_timer.timeout.disconnect(spawn_enemy)
 		return
+		
 	var random_float := randf_range(0,1)
 	spawn_line.set_progress_ratio(random_float)
 	var spawn_position =  spawn_line.get_spawn_global_position()
@@ -51,6 +57,9 @@ func spawn_enemy() ->  void :
 	if temp_time < min_spawn_time:
 		temp_time = min_spawn_time
 	spawn_timer.start(temp_time)
+	
+	if randf() <= extra_spawn_chance:  # chance to spawn an additional enemy
+		spawn_enemy()
 
 func get_boat() -> PackedScene:
 	if randf() >= 0.5:
